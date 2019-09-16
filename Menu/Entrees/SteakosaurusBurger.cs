@@ -18,10 +18,10 @@ namespace DinoDiner.Menu.Entrees
             {
                 List<string> ingredients = new List<string>
                 {
-                    "Steakburger Patty"
+                    "Steakburger Pattie"
                 };
-                if (bun) ingredients.Add("Whole Wheat Bub");
-                if (pickle) ingredients.Add("Pickles");
+                if (bun) ingredients.Add("Whole Wheat Bun");
+                if (pickle) ingredients.Add("Pickle");
                 if (ketchup) ingredients.Add("Ketchup");
                 if (mustard) ingredients.Add("Mustard");
                 return ingredients;
