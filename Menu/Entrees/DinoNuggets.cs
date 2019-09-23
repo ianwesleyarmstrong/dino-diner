@@ -3,21 +3,22 @@ using System;
 
 namespace DinoDiner.Menu.Entrees
 {
-    public class DinoNuggets
+    public class DinoNuggets : Entree
     {
         private int numNuggets = 6;
+        private int additionalNuggets = 0;
 
 
-        public double Price { get; set; }
-        public uint Calories { get; set; }
-            
-
-        public List<string> Ingredients
+        public override List<string> Ingredients
         {
             get
             {
                 List<string> ingredients = new List<string>();
                 for (int i = 0; i < numNuggets; i++)
+                {
+                    ingredients.Add("Chicken Nugget");
+                }
+                for (int i = 0; i < additionalNuggets; i++)
                 {
                     ingredients.Add("Chicken Nugget");
                 }
@@ -27,13 +28,15 @@ namespace DinoDiner.Menu.Entrees
 
         public DinoNuggets()
         {
-            this.Price = 4.25 + ((numNuggets - 6) * 0.25);
-            this.Calories = Convert.ToUInt32(numNuggets * 59);
+            this.Price = 4.25;
+            this.Calories = 6 * 59;
         }
 
         public void AddNugget()
         {
-            this.numNuggets += 1;
+            this.additionalNuggets++;
+            this.Price += 0.25;
+            this.Calories += 59;
         }
     }
 }
