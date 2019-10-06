@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Text;
 using Xunit;
 using DinoDiner.Menu;
-using DinoDiner.Menu.Drinks;
 
 namespace MenuTest.Drinks
 {
@@ -38,8 +37,8 @@ namespace MenuTest.Drinks
         public void ShouldBeAbleToSetFlavorToVanila()
         {
             Sodasaurus soda = new Sodasaurus();
-            soda.Flavor = SodasaurusFlavor.Vanila;
-            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Vanila, soda.Flavor);
+            soda.Flavor = SodasaurusFlavor.Vanilla;
+            Assert.Equal<SodasaurusFlavor>(SodasaurusFlavor.Vanilla, soda.Flavor);
         }
 
         [Fact]

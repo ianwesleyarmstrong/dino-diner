@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
     public enum SodasaurusFlavor
     {
         Cola,
         Orange,
-        Vanila,
+        Vanilla,
         Chocolate,
         RootBeer,
         Cherry,

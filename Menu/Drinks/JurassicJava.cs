@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class JurassicJava : Drink
+    public class JurassicJava : Drink, IMenuItem
     {
 
         private Size size;
@@ -114,6 +114,18 @@ namespace DinoDiner.Menu.Drinks
         public override void HoldIce()
         {
             ice = false;
+        }
+
+        public override string ToString()
+        {
+            if (Decaf)
+            {
+                return $"{Size} Decaf Jurassic Java";
+            }
+            else
+            {
+                return $"{Size} Jurassic Java";
+            }
         }
     }
 }

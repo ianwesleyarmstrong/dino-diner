@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class Sodasaurus : Drink
+    public class Sodasaurus : Drink, IMenuItem
     {
 
         private SodasaurusFlavor flavor;
@@ -98,6 +98,11 @@ namespace DinoDiner.Menu.Drinks
         public override void HoldIce()
         {
             ice = false;
+        }
+
+        public override string ToString()
+        {
+            return $"{Size} {Flavor} Sodasaurus";
         }
     }
 }

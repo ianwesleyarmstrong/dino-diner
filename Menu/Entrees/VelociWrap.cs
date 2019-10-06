@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class VelociWrap : Entree
+    public class VelociWrap : Entree, IMenuItem
     {
 
         public bool dressing = true;
@@ -47,6 +47,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldCheese()
         {
             this.cheese = false;
+        }
+
+        public override string ToString()
+        {
+            return "Veloci-Wrap";
         }
 
     }

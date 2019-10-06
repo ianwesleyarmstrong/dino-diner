@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public abstract class Drink
+    public abstract class Drink : IMenuItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -27,5 +27,7 @@ namespace DinoDiner.Menu.Drinks
         public abstract Size Size { get; set; }
 
         public abstract void HoldIce();
+
+        public abstract override string ToString();
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class Tyrannotea : Drink
+    public class Tyrannotea : Drink, IMenuItem
     {
 
         private double price;
@@ -153,6 +153,18 @@ namespace DinoDiner.Menu.Drinks
         public void AddLemon()
         {
             lemon = true;
+        }
+
+        public override string ToString()
+        {
+            if (Sweet)
+            {
+                return $"{Size} Sweet Tyrannotea";
+            }
+            else
+            {
+                return $"{size} Tyrannotea";
+            }
         }
     }
 }

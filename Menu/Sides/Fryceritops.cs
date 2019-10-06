@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public class Fryceritops : Side
+    public class Fryceritops : Side, IMenuItem
     {
         private Size size;
         /// <summary>
@@ -56,11 +56,23 @@ namespace DinoDiner.Menu.Sides
         /// Creates a new instance of Fryceritops.
         /// </summary>
         /// <param name="orderSize"> The size they would like to order </param>
-        public Fryceritops(Size orderSize = Size.Small)
+        public Fryceritops(Size orderSize)
         {
             this.size = orderSize;
             this.Price = 0.99;
             this.Calories = 222;
+        }
+
+        public Fryceritops()
+        {
+            this.size = Size.Small;
+            this.Price = 0.99;
+            this.Calories = 222;
+        }
+
+        public override string ToString()
+        {
+            return $"{Size} Friceritops";
         }
     }
 }

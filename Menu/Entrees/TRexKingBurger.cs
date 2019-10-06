@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class TRexKingBurger : Entree
+    public class TRexKingBurger : Entree, IMenuItem
     {
         public bool bun = true;
         public bool pickle = true;
@@ -81,5 +81,9 @@ namespace DinoDiner.Menu.Entrees
             this.onion = false;
         }
 
+        public override string ToString()
+        {
+            return "T-Rex King Burger";
+        }
     }
 }

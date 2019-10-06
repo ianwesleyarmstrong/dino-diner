@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Drinks
+namespace DinoDiner.Menu
 {
-    public class Water : Drink
+    public class Water : Drink, IMenuItem
     {
         private double price;
         private Size size;
@@ -106,6 +106,11 @@ namespace DinoDiner.Menu.Drinks
         public override void HoldIce()
         {
             ice = false;
+        }
+
+        public override string ToString()
+        {
+            return $"{Size} Water";
         }
     }
 }

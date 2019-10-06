@@ -1,8 +1,8 @@
 ﻿using System.Collections.Generic;
 
-namespace DinoDiner.Menu.Entrees
+namespace DinoDiner.Menu
 {
-    public class Brontowurst : Entree
+    public class Brontowurst : Entree, IMenuItem
     {
         private bool bun = true;
         private bool peppers = true;
@@ -41,6 +41,11 @@ namespace DinoDiner.Menu.Entrees
         public void HoldOnion()
         {
             this.onion = false;
+        }
+
+        public override string ToString()
+        {
+            return "Brontowurst";
         }
     }
 }

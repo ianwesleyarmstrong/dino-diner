@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DinoDiner.Menu.Sides
+namespace DinoDiner.Menu
 {
-    public class MeteorMacAndCheese : Side
+    public class MeteorMacAndCheese : Side, IMenuItem
     {
         private Size size;
         /// <summary>
@@ -58,12 +58,25 @@ namespace DinoDiner.Menu.Sides
         ///  Creates a new instance of Meteor Mac and Cheese.
         /// </summary>
         /// <param name="orderSize"> The size they would like to order </param>
-        public MeteorMacAndCheese(Size orderSize = Size.Small)
+        public MeteorMacAndCheese(Size orderSize)
         {
             this.size = orderSize;
             this.Price = 0.99;
             this.Calories = 420;
 
+        }
+
+        public MeteorMacAndCheese()
+        {
+            this.size = Size.Small;
+            this.Price = 0.99;
+            this.Calories = 420;
+
+        }
+
+        public override string ToString()
+        {
+            return $"{Size} Meteor Mac and Cheese";
         }
     }
 }
