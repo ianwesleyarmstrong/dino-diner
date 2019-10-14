@@ -16,21 +16,20 @@ using System.Windows.Shapes;
 namespace PointOfSale
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DrinkSelection.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DrinkSelection : Page
     {
-        public MainWindow()
+
+        private bool isSweet;
+        private bool hasLemon;
+        private bool isDecaf;
+        public DrinkSelection()
         {
             InitializeComponent();
         }
 
-        private void Frame_Navigated(object sender, NavigationEventArgs e)
-        {
-
-        }
-
-        private void Frame_Navigated_1(object sender, NavigationEventArgs e)
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
 
         }

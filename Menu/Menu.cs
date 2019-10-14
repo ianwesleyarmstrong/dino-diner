@@ -6,7 +6,11 @@ namespace DinoDiner.Menu
 {
     public class Menu 
     {
-        List<IMenuItem> AvailableMenuItems
+
+        /// <summary>
+        /// List of all available menu items
+        /// </summary>
+        public List<IMenuItem> AvailableMenuItems
         {
             get
             {
@@ -37,7 +41,11 @@ namespace DinoDiner.Menu
 
             }
         }
-        List<IMenuItem> AvailableEntrees
+
+        /// <summary>
+        /// List of all avilable Entrees.
+        /// </summary>
+        public List<IMenuItem> AvailableEntrees
         {
             get
             {
@@ -52,7 +60,11 @@ namespace DinoDiner.Menu
                 return availEntrees;
             }
         }
-        List<IMenuItem> AvailableSides
+
+        /// <summary>
+        /// List of all avilable sides
+        /// </summary>
+        public List<IMenuItem> AvailableSides
         {
             get
             {
@@ -64,7 +76,11 @@ namespace DinoDiner.Menu
                 return availSides;
             }
         }
-        List<IMenuItem> AvailableDrinks
+
+        /// <summary>
+        /// List of available drinks
+        /// </summary>
+        public List<IMenuItem> AvailableDrinks
         {
             get
             {
@@ -76,7 +92,11 @@ namespace DinoDiner.Menu
                 return availDrinks;
             }
         }
-        List<IMenuItem> AvailableCombos
+
+        /// <summary>
+        /// List of all available combos
+        /// </summary>
+        public List<IMenuItem> AvailableCombos
         {
             get
             {
@@ -93,6 +113,10 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Displays the all available items in the menu
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
