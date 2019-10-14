@@ -8,82 +8,85 @@
       d:DesignHeight="450" d:DesignWidth="800"
       Title="EntreeSelection">
 
-    <Grid>
-        <WrapPanel>
-            <WrapPanel.Resources>
-                <Style TargetType="Button">
-                    <Setter Property="Width" Value="200"/>
-                    <Setter Property="Height" Value="230"/>
-                </Style>
-            </WrapPanel.Resources>
 
-            <Button>
-                <StackPanel>
-                    <Image Source="Assets/DinoDiner-01.png">
-                    </Image>
-                    <TextBlock> Brontowurst </TextBlock>
-                </StackPanel>
+    <Grid x:Name="ComboGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
 
-            </Button>
-            <Button>
-                <StackPanel>
-                    <Image Source="Assets/DinoDiner-02.png">
-                    </Image>
-                    <TextBlock>
-                    Dino-Nuggets
-                    </TextBlock>
-                </StackPanel>
-            </Button>
 
-            <Button>
-                <StackPanel>
-                    <Image Source="Assets/DinoDiner-05.png">
-                    </Image>
-                    <TextBlock>
-                    Steakosaurus Burger 
-                    </TextBlock>
-                </StackPanel>
-            </Button>
+        <Button Name="Brontowurst" Grid.Column="0" Grid.Row="0" >
+            <StackPanel>
+                <Image Source="/Assets/DinoDiner-01.png">
+                </Image>
+                <TextBlock> Brontowurst </TextBlock>
+            </StackPanel>
+        </Button >
+        <Button Name="DinoNuggets" Grid.Column="1" Grid.Row="0" >
+            <StackPanel>
+                <Image Source="Assets/DinoDiner-02.png">
+                </Image>
+                <TextBlock>
+                Dino-Nuggets 
+                </TextBlock>
+            </StackPanel>
+        </Button>
 
-            <Button>
-                <StackPanel>
-                    <Image Source="Assets/DinoDiner-06.png">
-                    </Image>
-                    <TextBlock>
-                    T-Rex King Burger 
-                    </TextBlock>
-                </StackPanel>
-            </Button>
+        <Button Name="SteakosaurusBurger" Grid.Column="2" Grid.Row="0" >
+            <StackPanel>
+                <Image Source="Assets/DinoDiner-05.png">
+                </Image>
+                <TextBlock>
+                Steakosaurus Burger 
+                </TextBlock>
+            </StackPanel>
+        </Button>
 
-            <Button>
-                <StackPanel>
-                    <Image Source="Assets/DinoDiner-04.png">
-                    </Image>
-                    <TextBlock>
-                    Pterodactyl Wings 
-                    </TextBlock>
-                </StackPanel>
-            </Button>
+        <Button Name="TRexKingBurger" Grid.Column="0" Grid.Row="1" >
+            <StackPanel>
+                <Image Source="Assets/DinoDiner-06.png">
+                </Image>
+                <TextBlock>
+                T-Rex King Burger 
+                </TextBlock>
+            </StackPanel>
+        </Button>
 
-            <Button>
-                <StackPanel>
-                    <Image Source="Assets/DinoDiner-03.png">
-                    </Image>
-                    <TextBlock>
-                        Prehistoric PB&amp;J
-                    </TextBlock>
-                </StackPanel>
-            </Button>
+        <Button Name="PterodactylWings" Grid.Column="3" Grid.Row="0" >
+            <StackPanel>
+                <Image Source="Assets/DinoDiner-04.png">
+                </Image>
+                <TextBlock>
+                Pterodactyl Wings
+                </TextBlock>
+            </StackPanel>
+        </Button>
 
-            <Button>
-                <StackPanel>
-                    <Image Source="Assets/DinoDiner-07.png">
-                    </Image>
-                    <TextBlock>
-                        Veloci-Wrap 
-                    </TextBlock>
-                </StackPanel>
-            </Button>
-        </WrapPanel>
+        <Button Name="PBJ" Grid.Column="1" Grid.Row="1" >
+            <StackPanel>
+                <Image Source="Assets/DinoDiner-03.png">
+                </Image>
+                <TextBlock>
+                    Prehistoric PB&amp;J 
+                </TextBlock>
+            </StackPanel>
+        </Button>
+
+        <Button Name="VelociWrap" Grid.Column="2" Grid.Row="1" >
+            <StackPanel>
+                <Image Source="Assets/DinoDiner-07.png">
+                </Image>
+                <TextBlock>
+                    Veloci-Wrap 
+                </TextBlock>
+            </StackPanel>
+        </Button>
     </Grid>
 </Page>

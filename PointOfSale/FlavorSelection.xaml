@@ -9,50 +9,51 @@
       Title="FlavorSelection">
 
     <Grid>
-        <WrapPanel>
-            <WrapPanel.Resources>
-            <Style TargetType="Button">
-                <Setter Property="Width" Value="200"/>
-                <Setter Property="Height" Value="230"/>
-            </Style>
-            </WrapPanel.Resources>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
 
-            <Button>
-                <TextBlock>
+        <Button Grid.Column="0">
+            <TextBlock>
                     Cherry
-                </TextBlock>
-            </Button>
-            <Button>
-                <TextBlock>
+            </TextBlock>
+        </Button>
+        <Button Grid.Column="1">
+            <TextBlock>
                     Chocolate
-                </TextBlock>
-            </Button>
-            <Button>
-                <TextBlock>
+            </TextBlock>
+        </Button>
+        <Button Grid.Column="2">
+            <TextBlock>
                     Cola
-                </TextBlock>
-            </Button>
-            <Button>
-                <TextBlock>
+            </TextBlock>
+        </Button>
+        <Button Grid.Column="3">
+            <TextBlock>
                     Lime
-                </TextBlock>
-            </Button>
-            <Button>
-                <TextBlock>
+            </TextBlock>
+        </Button>
+        <Button Grid.Column="4">
+            <TextBlock>
                     Orange
-                </TextBlock>
-            </Button>
-            <Button>
-                <TextBlock>
+            </TextBlock>
+        </Button>
+        <Button Grid.Column="5">
+            <TextBlock>
                     Root Beer
-                </TextBlock>
-            </Button>
-            <Button>
-                <TextBlock>
+            </TextBlock>
+        </Button>
+        <Button Grid.Column="6">
+            <TextBlock>
                     Vanilla
-                </TextBlock>
-            </Button>
-        </WrapPanel>
-        
+            </TextBlock>
+        </Button>
+
     </Grid>
 </Page>

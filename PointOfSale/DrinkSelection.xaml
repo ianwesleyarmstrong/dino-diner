@@ -15,10 +15,11 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition>
+            </ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Grid.Column="0">
+        <Button Name="SodasaurusButton" Grid.Column="0">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-14.png">
                 </Image>
@@ -27,7 +28,7 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="1">
+        <Button Name="TyrannoteaButton" Grid.Column="1">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-12.png">
                 </Image>
@@ -37,7 +38,7 @@
             </StackPanel>
         </Button>
 
-        <Button Grid.Column="2">
+        <Button Name="JurassicJavaButton" Grid.Column="2">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-13.png">
                 </Image>
@@ -46,7 +47,7 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="3" Click="Button_Click">
+        <Button Name="WaterButton" Grid.Column="3">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-15.png">
                 </Image>
@@ -65,9 +66,18 @@
             <RadioButton x:Name="large" Content="Large"></RadioButton>
 
         </StackPanel>
-        <StackPanel Grid.Column="5">
-            <Button>
-                placeholder
+        <StackPanel Name="DynamicPanel" Grid.Column="5">
+            <RadioButton Name="Lemon">
+                lemon
+            </RadioButton>
+            <RadioButton Name="decaf">
+                decaf
+            </RadioButton>
+            <RadioButton Name="sweet">
+                sweet
+            </RadioButton>
+            <Button Name="Flavor" Click="Flavor_Click">
+                Flavor
             </Button>
         </StackPanel>
     </Grid>

@@ -24,14 +24,23 @@ namespace PointOfSale
         private bool isSweet;
         private bool hasLemon;
         private bool isDecaf;
+
+        
+
+
         public DrinkSelection()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Soda_Click(object sender, RoutedEventArgs e)
         {
+            
+        }
 
+        private void Flavor_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.Navigate(new FlavorSelection());
         }
     }
 }

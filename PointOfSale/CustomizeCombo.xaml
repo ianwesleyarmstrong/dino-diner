@@ -18,11 +18,11 @@
         <Button Name="EntreeButton" Grid.Column="0">
             <StackPanel>
                 <TextBlock>
-                    
+                    Current Entree
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Grid.Column="1" Click="Side_Click">
+        <Button Name="SideButton" Grid.Column="1" Click="Side_Click">
             <StackPanel>
                 <TextBlock>
                     Current Side
@@ -30,7 +30,7 @@
             </StackPanel>
         </Button>
 
-        <Button Grid.Column="2" Click="Drink_Click">
+        <Button Name="DrinkButton" Grid.Column="2" Click="Drink_Click">
             <StackPanel>
                 <TextBlock>
                     Current Drink
