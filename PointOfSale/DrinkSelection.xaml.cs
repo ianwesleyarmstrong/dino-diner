@@ -21,9 +21,7 @@ namespace PointOfSale
     public partial class DrinkSelection : Page
     {
 
-        private bool isSweet;
-        private bool hasLemon;
-        private bool isDecaf;
+        Button decafButton = new Button();
 
         
 

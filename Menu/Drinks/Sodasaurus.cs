@@ -17,6 +17,16 @@ namespace DinoDiner.Menu
             Flavor = SodasaurusFlavor.Cola;
             Size = Size.Small;
         }
+
+        public string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                if (!Ice) special.Add("Hold Ice");
+                return special.ToArray();
+            }
+        }
             
 
         public SodasaurusFlavor Flavor
