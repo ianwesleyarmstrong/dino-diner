@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -46,6 +46,72 @@ namespace MenuTest.Entrees
             pbj.HoldJelly();
             Assert.DoesNotContain<string>("Jelly", pbj.Ingredients);
         }
-    }
 
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.Empty(pbj.Special);
+        }
+
+        [Fact]
+        public void SpecialPBJHoldJelly()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldJelly();
+            Assert.Collection<string>(pbj.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Jelly", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialPBJHoldPeanutButter()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldPeanutButter();
+            Assert.Collection<string>(pbj.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Peanut Butter", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialPBJHoldPeanutButterAndJelly()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            pbj.HoldJelly();
+            pbj.HoldPeanutButter();
+            Assert.Collection<string>(pbj.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Peanut Butter", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Jelly", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void HoldPeanutButterShouldNotifyOfPropertyChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", pbj.HoldPeanutButter);
+        }
+
+        [Fact]
+        public void HoldJellyShouldNotifyOfPropertyChange()
+        {
+            PrehistoricPBJ pbj = new PrehistoricPBJ();
+            Assert.PropertyChanged(pbj, "Special", pbj.HoldJelly);
+        }
+
+
+    }
 }

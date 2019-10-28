@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Drink : IMenuItem
+    public abstract class Drink : IMenuItem, IOrderItem
     {
         /// <summary>
         /// Gets and sets the price
@@ -28,6 +28,20 @@ namespace DinoDiner.Menu
 
         public abstract void HoldIce();
 
+        /// <summary>
+        /// Abstract method for to string
+        /// </summary>
+        /// <returns></returns>
         public abstract override string ToString();
+
+        /// <summary>
+        /// abstract method for description (similar to ToString())
+        /// </summary>
+        public abstract string Description { get; }
+
+        /// <summary>
+        /// abstract method for special instructions for drink
+        /// </summary>
+        public abstract string[] Special { get; }
     }
 }

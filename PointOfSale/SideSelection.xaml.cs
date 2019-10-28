@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -20,21 +21,80 @@ namespace PointOfSale
     /// </summary>
     public partial class SideSelection : Page
     {
+
+        public Side Side { get; set; }
         public SideSelection()
         {
             InitializeComponent();
         }
 
-        private void Small_Checked(object sender, RoutedEventArgs e)
+        public SideSelection(Side side)
+        {
+            InitializeComponent();
+            DataContext = side;
+            this.Side = side;
+        }
+
+        public void AddFryceritiops(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new Fryceritops());
+        }
+
+        public void AddTriceritots(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new Triceritots());
+        }
+
+        public void AddMeteorMacAndCheese(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MeteorMacAndCheese());
+        }
+
+        public void AddMezzorellaSticks(object sender, RoutedEventArgs args)
+        {
+            SelectSide(new MezzorellaSticks());
+        }
+
+
+        private void SelectSide(Side side)
+        {
+            if (DataContext is Order order)
+            {
+                order.Items.Add(side);
+                this.Side = side;
+            }
+
+        }
+
+        private void SelectSize(DinoDiner.Menu.Size size)
+        {
+            if (this.Side != null)
+            {
+                this.Side.Size = size;
+            }
+            NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+
+        protected void OnSelectLarge(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Large);
+        }
+
+        protected void OnSelectMedium(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Medium);
+        }
+
+        protected void OnSelectSmall(object sender, RoutedEventArgs args)
+        {
+            SelectSize(DinoDiner.Menu.Size.Small);
+        }
+
+        public void OnSelected(Side side)
         {
 
         }
 
-        private void Large_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-       
     }
 }

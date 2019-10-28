@@ -4,7 +4,7 @@ using System.Text;
 
 namespace DinoDiner.Menu
 {
-    public abstract class Entree : IMenuItem
+    public abstract class Entree : IMenuItem, IOrderItem
     {
         public double Price { get; set; }
 
@@ -13,6 +13,10 @@ namespace DinoDiner.Menu
         public abstract List<string> Ingredients { get; }
 
         public abstract override string ToString();
+
+        public abstract string Description { get; }
+
+        public abstract string[] Special { get; }
 
     }
 }

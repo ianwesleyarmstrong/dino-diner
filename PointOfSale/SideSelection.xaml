@@ -17,7 +17,7 @@
             <ColumnDefinition></ColumnDefinition>
             
         </Grid.ColumnDefinitions>
-        <Button Grid.Column="0">
+        <Button Grid.Column="0"  Click="AddFryceritiops">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-08.png"></Image>
                 <TextBlock>
@@ -27,7 +27,7 @@
             
             
         </Button>
-        <Button Grid.Column="1">
+        <Button Grid.Column="1" Click="AddTriceritots">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-11.png"></Image>
                 <TextBlock>
@@ -36,7 +36,7 @@
             </StackPanel>
             
         </Button>
-        <Button Grid.Column="2">
+        <Button Grid.Column="2" Click="AddMeteorMacAndCheese">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-09.png"></Image>
                 <TextBlock>
@@ -45,7 +45,7 @@
             </StackPanel>
             
         </Button>
-        <Button Grid.Column="3">
+        <Button Grid.Column="3" Click="AddMezzorellaSticks">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-10.png"></Image>
                 <TextBlock>
@@ -54,12 +54,9 @@
             </StackPanel>
         </Button>
         <StackPanel Grid.Column="4">
-            <TextBlock VerticalAlignment="Center">
-                Size
-            </TextBlock>
-            <RadioButton x:Name="small" Content="Small" IsChecked="True"></RadioButton>
-            <RadioButton x:Name="medium" Content="Medium"></RadioButton>
-            <RadioButton x:Name="large" Content="Large"></RadioButton>
+            <RadioButton x:Name="small" Content="Small" IsChecked="True" Click="OnSelectSmall" Style="{StaticResource {x:Type ToggleButton}}" Height="150"/>
+            <RadioButton x:Name="medium" Content="Medium" Click="OnSelectMedium" Style="{StaticResource {x:Type ToggleButton}}" Height="150"/>
+            <RadioButton x:Name="large" Content="Large" Click="OnSelectLarge" Style="{StaticResource {x:Type ToggleButton}}" Height="150"/>
 
         </StackPanel>
 

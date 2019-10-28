@@ -39,12 +39,9 @@
         </Button>
 
         <StackPanel Grid.Column="3">
-            <TextBlock VerticalAlignment="Center">
-                Size
-            </TextBlock>
-            <RadioButton x:Name="small" Content="Small" IsChecked="True"></RadioButton>
-            <RadioButton x:Name="medium" Content="Medium"></RadioButton>
-            <RadioButton x:Name="large" Content="Large"></RadioButton>
+            <RadioButton x:Name="small" Content="Small" IsChecked="True" Style="{StaticResource {x:Type ToggleButton}}" Height="150"></RadioButton>
+            <RadioButton x:Name="medium" Content="Medium" Style="{StaticResource {x:Type ToggleButton}}" Height="150"></RadioButton>
+            <RadioButton x:Name="large" Content="Large" Style="{StaticResource {x:Type ToggleButton}}" Height="150"></RadioButton>
 
         </StackPanel>
 

@@ -121,5 +121,59 @@ namespace MenuTest.Drinks
             Assert.Contains<string>("Coffee", java.Ingredients);
             Assert.Equal(2, java.Ingredients.Count);
         }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.Empty(java.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldLeaveRoomForCream()
+        {
+            JurassicJava java = new JurassicJava();
+            java.LeaveRoomForCream = true;
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Leave Room for Cream", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialJurassicJavaShouldAddIce()
+        {
+            JurassicJava java = new JurassicJava();
+            java.AddIce();
+            Assert.Collection<string>(java.Special,
+                item =>
+                {
+                    Assert.Equal("Add Ice", item);
+                }
+            );
+        }
+
+
+        [Fact]
+        public void DecafShouldNotifyDescriptionOfPropertyChange()
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, "Description", () => java.Decaf = true);
+        }
+
+        [Theory]
+        [InlineData("Price")]
+        [InlineData("Description")]
+        public void ChangingSizeShouldChangePriceAndDescription(string propName)
+        {
+            JurassicJava java = new JurassicJava();
+            Assert.PropertyChanged(java, propName, () => java.Size = Size.Small);
+            Assert.PropertyChanged(java, propName, () => java.Size = Size.Medium);
+            Assert.PropertyChanged(java, propName, () => java.Size = Size.Large);
+        }
+
+
     }
 }

@@ -29,7 +29,7 @@ namespace PointOfSale
         {
             NavigationService.Navigate(new CustomizeCombo(((Button)sender).Name));
             
-
         }
+
     }
 }

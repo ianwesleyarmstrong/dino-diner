@@ -15,11 +15,10 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
-            <ColumnDefinition>
-            </ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
-        <Button Name="SodasaurusButton" Grid.Column="0">
+        <Button Name="SodasaurusButton" Grid.Column="0" Click="AddSoda">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-14.png">
                 </Image>
@@ -28,7 +27,7 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Name="TyrannoteaButton" Grid.Column="1">
+        <Button Name="TyrannoteaButton" Grid.Column="1" Click="AddTea">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-12.png">
                 </Image>
@@ -38,7 +37,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="JurassicJavaButton" Grid.Column="2">
+        <Button Name="JurassicJavaButton" Grid.Column="2" Click="AddCoffee">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-13.png">
                 </Image>
@@ -47,7 +46,7 @@
                 </TextBlock>
             </StackPanel>
         </Button>
-        <Button Name="WaterButton" Grid.Column="3">
+        <Button Name="WaterButton" Grid.Column="3" Click="AddWater">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-15.png">
                 </Image>
@@ -58,27 +57,25 @@
         </Button>
 
         <StackPanel Grid.Column="4">
-            <TextBlock VerticalAlignment="Center">
-                Size
-            </TextBlock>
-            <RadioButton x:Name="small" Content="Small" IsChecked="True"></RadioButton>
-            <RadioButton x:Name="medium" Content="Medium"></RadioButton>
-            <RadioButton x:Name="large" Content="Large"></RadioButton>
+            <RadioButton x:Name="small" Content="Small" IsChecked="True" Style="{StaticResource {x:Type ToggleButton}}" Height="150" Click="OnSelectSmall"></RadioButton>
+            <RadioButton x:Name="medium" Content="Medium" Style="{StaticResource {x:Type ToggleButton}}" Height="150" Click="OnSelectMedium"></RadioButton>
+            <RadioButton x:Name="large" Content="Large" Style="{StaticResource {x:Type ToggleButton}}" Height="150" Click="OnSelectLarge"></RadioButton>
 
         </StackPanel>
         <StackPanel Name="DynamicPanel" Grid.Column="5">
-            <RadioButton Name="Lemon">
-                lemon
+            <RadioButton Name="Lemon" Style="{StaticResource {x:Type ToggleButton}}" Height="100" Click="OnLemon">
+                Lemon
             </RadioButton>
-            <RadioButton Name="decaf">
-                decaf
+            <RadioButton Name="decaf" Style="{StaticResource {x:Type ToggleButton}}" Height="100" Click="OnDecaf">
+                Decaf
             </RadioButton>
-            <RadioButton Name="sweet">
-                sweet
+            <RadioButton Name="sweet" Style="{StaticResource {x:Type ToggleButton}}" Height="100" Click="OnSweet">
+                Sweet
             </RadioButton>
-            <Button Name="Flavor" Click="Flavor_Click">
+            <Button Name="Flavor" Click="Flavor_Click" Height="100">
                 Flavor
             </Button>
+            <Button Name="Done" Click="DoneClick" Height="50">Done</Button>
         </StackPanel>
     </Grid>
 </Page>

@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 using Xunit;
-using DinoDiner.Menu.Entrees;
+using DinoDiner.Menu;
 
 namespace MenuTest.Entrees
 {
@@ -106,6 +106,217 @@ namespace MenuTest.Entrees
             trex.HoldMayo();
             Assert.DoesNotContain<string>("Mayo", trex.Ingredients);
         }
+
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.Empty(trex.Special);
+        }
+
+        [Fact]
+        public void SpecialShouldHoldBun()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldBun();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldPickle()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldPickle();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldKetchup()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldKetchup();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldMustard()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldMustard();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                }
+                );
+        }
+
+
+        [Fact]
+        public void SpecialShouldHoldMayo()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldMayo();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Mayo", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldLettuce()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldLettuce();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldTomato()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldTomato();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Tomato", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldOnion()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldOnion();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Onion", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void SpecialShouldHoldEverything()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            trex.HoldBun();
+            trex.HoldPickle();
+            trex.HoldKetchup();
+            trex.HoldMustard();
+            trex.HoldMayo();
+            trex.HoldLettuce();
+            trex.HoldTomato();
+            trex.HoldOnion();
+            Assert.Collection<string>(trex.Special,
+                item =>
+                {
+                    Assert.Equal("Hold Bun", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Pickle", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Ketchup", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mustard", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Mayo", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Lettuce", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Tomato", item);
+                },
+                item =>
+                {
+                    Assert.Equal("Hold Onion", item);
+                }
+                );
+        }
+
+        [Fact]
+        public void HoldingBunShouldNotifyOfPropertyChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", trex.HoldBun);
+        }
+
+        [Fact]
+        public void HoldingKetchupShouldNotifyOfPropertyChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", trex.HoldKetchup);
+        }
+
+        [Fact]
+        public void HoldingMustardShouldNotifyOfPropertyChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", trex.HoldMustard);
+        }
+
+        [Fact]
+        public void HoldingPickleShouldNotifyOfPropertyChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", trex.HoldPickle);
+        }
+
+        [Fact]
+        public void HoldingLettuceShouldNotifyOfPropertyChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", trex.HoldLettuce);
+        }
+
+        [Fact]
+        public void HoldingTomatoShouldNotifyOfPropertyChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", trex.HoldTomato);
+        }
+
+        [Fact]
+        public void HoldingMayoShouldNotifyOfPropertyChange()
+        {
+            TRexKingBurger trex = new TRexKingBurger();
+            Assert.PropertyChanged(trex, "Special", trex.HoldMayo);
+        }
+
+        
 
     }
 

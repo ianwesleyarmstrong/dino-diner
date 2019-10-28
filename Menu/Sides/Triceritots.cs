@@ -1,11 +1,45 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
-    public class Triceritots : Side, IMenuItem
+    public class Triceritots : Side, IMenuItem, INotifyPropertyChanged
     {
+
+        public override string Description
+        {
+            get
+            {
+                return this.ToString();
+            }
+        }
+
+        public override string[] Special
+        {
+            get
+            {
+                List<string> special = new List<string>();
+                return special.ToArray();
+            }
+        }
+
+        /// <summary>
+        /// PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, nad 
+        /// Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// helper funtion to notify of property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
 
         private Size size;
         /// <summary>
@@ -35,6 +69,8 @@ namespace DinoDiner.Menu
             set
             {
                 size = value;
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
                 switch (value)
                 {
                     case Size.Small:
@@ -65,6 +101,9 @@ namespace DinoDiner.Menu
 
         }
 
+        /// <summary>
+        /// default constructor
+        /// </summary>
         public Triceritots()
         {
             this.size = Size.Small;
@@ -73,6 +112,10 @@ namespace DinoDiner.Menu
 
         }
 
+        /// <summary>
+        /// override of default ToString
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return $"{size} Triceritots";

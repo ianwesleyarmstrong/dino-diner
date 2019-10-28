@@ -169,6 +169,60 @@ namespace MenuTest.Drinks
             Assert.Equal(3, soda.Ingredients.Count);
         }
 
+        [Fact]
+        public void SpecialShouldBeEmpty()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.Empty(soda.Special);
+        }
+
+
+        [Fact]
+        public void SpecialShouldHoldIce()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            soda.HoldIce();
+            Assert.Collection<string>(soda.Special,
+                 item =>
+                 {
+                     Assert.Equal("Hold Ice", item);
+                 }
+                 );
+
+        }
+
+        [Fact]
+        public void HoldIceShouldNotifyOfPropertyChange()
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Special", soda.HoldIce);
+        }
+
+        [Theory]
+        [InlineData(SodasaurusFlavor.Cherry)]
+        [InlineData(SodasaurusFlavor.Chocolate)]
+        [InlineData(SodasaurusFlavor.Cola)]
+        [InlineData(SodasaurusFlavor.Lime)]
+        [InlineData(SodasaurusFlavor.Orange)]
+        [InlineData(SodasaurusFlavor.RootBeer)]
+        [InlineData(SodasaurusFlavor.Vanilla)]
+        public void ChangingFlavorShouldNotifyOfPropertyChange(SodasaurusFlavor f)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, "Description", () => soda.Flavor = f);
+        }
+
+        [Theory]
+        [InlineData("Description")]
+        [InlineData("Price")]
+        public void ChangingSizehouldNotifyOfPropertyChange(string propName)
+        {
+            Sodasaurus soda = new Sodasaurus();
+            Assert.PropertyChanged(soda, propName, () => soda.Size = Size.Small);
+            Assert.PropertyChanged(soda, propName, () => soda.Size = Size.Medium);
+            Assert.PropertyChanged(soda, propName, () => soda.Size = Size.Large);
+        }
+
 
     }
 }

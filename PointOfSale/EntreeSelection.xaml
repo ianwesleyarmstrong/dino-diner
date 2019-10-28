@@ -22,14 +22,14 @@
         </Grid.RowDefinitions>
 
 
-        <Button Name="Brontowurst" Grid.Column="0" Grid.Row="0" >
+        <Button Name="Brontowurst" Grid.Column="0" Grid.Row="0" Click="AddBrontowurst">
             <StackPanel>
                 <Image Source="/Assets/DinoDiner-01.png">
                 </Image>
                 <TextBlock> Brontowurst </TextBlock>
             </StackPanel>
         </Button >
-        <Button Name="DinoNuggets" Grid.Column="1" Grid.Row="0" >
+        <Button Name="DinoNuggets" Grid.Column="1" Grid.Row="0" Click="AddDinoNuggets" >
             <StackPanel>
                 <Image Source="Assets/DinoDiner-02.png">
                 </Image>
@@ -39,7 +39,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="SteakosaurusBurger" Grid.Column="2" Grid.Row="0" >
+        <Button Name="SteakosaurusBurger" Grid.Column="2" Grid.Row="0" Click="AddSteakosaurusBurger">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-05.png">
                 </Image>
@@ -49,7 +49,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="TRexKingBurger" Grid.Column="0" Grid.Row="1" >
+        <Button Name="TRexKingBurger" Grid.Column="0" Grid.Row="1" Click="AddTRexKingBurger">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-06.png">
                 </Image>
@@ -59,7 +59,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="PterodactylWings" Grid.Column="3" Grid.Row="0" >
+        <Button Name="PterodactylWings" Grid.Column="3" Grid.Row="0" Click="AddPterodactylWings">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-04.png">
                 </Image>
@@ -69,7 +69,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="PBJ" Grid.Column="1" Grid.Row="1" >
+        <Button Name="PBJ" Grid.Column="1" Grid.Row="1" Click="AddPrehistoricPBJ">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-03.png">
                 </Image>
@@ -79,7 +79,7 @@
             </StackPanel>
         </Button>
 
-        <Button Name="VelociWrap" Grid.Column="2" Grid.Row="1" >
+        <Button Name="VelociWrap" Grid.Column="2" Grid.Row="1" Click="AddVelociwrap">
             <StackPanel>
                 <Image Source="Assets/DinoDiner-07.png">
                 </Image>

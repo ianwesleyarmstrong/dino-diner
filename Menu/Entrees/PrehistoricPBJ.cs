@@ -12,7 +12,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// gets the description
         /// </summary>
-        public string Description
+        public override string Description
         {
             get
             {
@@ -20,7 +20,10 @@ namespace DinoDiner.Menu
             }
         }
 
-        public string[] Special
+        /// <summary>
+        /// special instructions for the order
+        /// </summary>
+        public override string[] Special
         {
             get
             {
@@ -47,6 +50,9 @@ namespace DinoDiner.Menu
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
        
+        /// <summary>
+        /// property for ingredients
+        /// </summary>
         public override List<string> Ingredients
         {
             get
@@ -58,26 +64,37 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// public constructor
+        /// </summary>
         public PrehistoricPBJ()
         {
             this.Price = 6.52;
             this.Calories = 483;
         }
 
+        /// <summary>
+        /// method to hold peanut butter
+        /// </summary>
         public void HoldPeanutButter()
         {
             this.peanutButter = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
+        /// <summary>
+        /// method to hold jelly
+        /// </summary>
         public void HoldJelly()
         {
             this.jelly = false;
             NotifyOfPropertyChange("Special");
-            NotifyOfPropertyChange("Ingredients");
         }
 
+        /// <summary>
+        /// override of default ToString
+        /// </summary>
+        /// <returns> name of item </returns>
         public override string ToString()
         {
             return "Prehistoric PB&J";

@@ -6,12 +6,12 @@ using DinoDiner.Menu;
 
 namespace MenuTest
 {
-    public class MenuItemNamesTest
+    public class DescriptionTest
     {
         #region Entrees
 
         [Fact]
-        public void BrontowurstToStringShouldGiveName()
+        public void BrontowurstDescription()
         {
             Brontowurst bw = new Brontowurst();
             Assert.Equal("Brontowurst", bw.ToString());
@@ -19,7 +19,7 @@ namespace MenuTest
 
 
         [Fact]
-        public void DinoNuggetToStringShouldGiveName()
+        public void DinoNuggetDescription()
         {
 
             DinoNuggets dn = new DinoNuggets();
@@ -28,35 +28,35 @@ namespace MenuTest
 
 
         [Fact]
-        public void PrehistoricPBJToStringShouldGiveName()
+        public void PrehistoricPBJDescription()
         {
             PrehistoricPBJ pbj = new PrehistoricPBJ();
             Assert.Equal("Prehistoric PB&J", pbj.ToString());
         }
 
         [Fact]
-        public void PterodactylWingsToStringShouldGiveName()
+        public void PterodactylWingsDescription ()
         {
             PterodactylWings pw = new PterodactylWings();
             Assert.Equal("Pterodactyl Wings", pw.ToString());
         }
 
         [Fact]
-        public void SteakosaurusBurgerToStringShouldGiveName()
+        public void SteakosaurusBurgerDescription()
         {
             SteakosaurusBurger sb = new SteakosaurusBurger();
             Assert.Equal("Steakosaurus Burger", sb.ToString());
         }
 
         [Fact]
-        public void TRexKingBurgerToStringShouldGiveName()
+        public void TRexKingBurgerDescription()
         {
             TRexKingBurger trex = new TRexKingBurger();
             Assert.Equal("T-Rex King Burger", trex.ToString());
         }
 
         [Fact]
-        public void VelociWrapToStringShouldGiveName()
+        public void VelociWrapDescription()
         {
             VelociWrap vw = new VelociWrap();
             Assert.Equal("Veloci-Wrap", vw.ToString());
@@ -70,7 +70,7 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void FryceritopsToStringShouldGiveNameForSize(Size size)
+        public void FryceritopsDescriptionForSize(Size size)
         {
             Fryceritops ft = new Fryceritops();
             ft.Size = size;
@@ -81,7 +81,7 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void MeteorMacAndCheeseToStringShouldGiveNameForSize(Size size)
+        public void MeteorMacAndCheeseDescriptionForSize(Size size)
         {
             MeteorMacAndCheese mmc = new MeteorMacAndCheese();
             mmc.Size = size;
@@ -92,7 +92,7 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void MezzorellaSticksToStringShouldGiveNameForSize(Size size)
+        public void MezzorellaSticksDescriptionForSize(Size size)
         {
             MezzorellaSticks ms = new MezzorellaSticks();
             ms.Size = size;
@@ -103,7 +103,7 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void ToStringShouldGiveNameForSize(Size size)
+        public void ToStringDescriptionForSize(Size size)
         {
             Triceritots tt = new Triceritots();
             tt.Size = size;
@@ -121,7 +121,7 @@ namespace MenuTest
         [InlineData(Size.Small, true)]
         [InlineData(Size.Medium, true)]
         [InlineData(Size.Large, true)]
-        public void JurrasicJavaToStringShouldGiveNameForSizeAndDecaf(Size size, bool decaf)
+        public void JurrasicJavaDescriptionForSizeAndDecaf(Size size, bool decaf)
         {
             JurassicJava java = new JurassicJava();
             java.Size = size;
@@ -153,7 +153,7 @@ namespace MenuTest
         [InlineData(Size.Large, SodasaurusFlavor.Orange)]
         [InlineData(Size.Large, SodasaurusFlavor.RootBeer)]
         [InlineData(Size.Large, SodasaurusFlavor.Vanilla)]
-        public void SodaSaurusToStringShouldGiveNameForSizeAndFlavor(Size size, SodasaurusFlavor flavor)
+        public void SodaSaurusDescriptionForSizeAndFlavor(Size size, SodasaurusFlavor flavor)
         {
             Sodasaurus soda = new Sodasaurus();
             soda.Size = size;
@@ -168,7 +168,7 @@ namespace MenuTest
         [InlineData(Size.Small, true)]
         [InlineData(Size.Medium, true)]
         [InlineData(Size.Large, true)]
-        public void TyrannoTeaToStringShouldGiveNameForSizeAndSweetness(Size size, bool sweet)
+        public void TyrannoTeaDescriptionForSizeAndSweetness(Size size, bool sweet)
         {
             Tyrannotea tea = new Tyrannotea();
             tea.Size = size;
@@ -181,7 +181,7 @@ namespace MenuTest
         [InlineData(Size.Small)]
         [InlineData(Size.Medium)]
         [InlineData(Size.Large)]
-        public void WaterToStringShouldGiveNameForSize(Size size)
+        public void WaterDescriptionForSize(Size size)
         {
             Water water = new Water();
             water.Size = size;
@@ -193,18 +193,34 @@ namespace MenuTest
         #region Combos
 
         [Theory]
-        [InlineData(typeof(Brontowurst), "Brontowurst Combo")]
-        [InlineData(typeof(DinoNuggets), "Dino-Nuggets Combo")]
-        [InlineData(typeof(PrehistoricPBJ), "Prehistoric PB&J Combo")]
-        [InlineData(typeof(PterodactylWings), "Pterodactyl Wings Combo")]
-        [InlineData(typeof(SteakosaurusBurger), "Steakosaurus Burger Combo")]
-        [InlineData(typeof(TRexKingBurger), "T-Rex King Burger Combo")]
-        [InlineData(typeof(VelociWrap), "Veloci-Wrap Combo")]
-        public void ToStringShouldGiveName(Type type, string name)
+        [InlineData(typeof(Brontowurst),Size.Small, "Small Brontowurst Combo")]
+        [InlineData(typeof(Brontowurst), Size.Medium, "Medium Brontowurst Combo")]
+        [InlineData(typeof(Brontowurst), Size.Large, "Large Brontowurst Combo")]
+        [InlineData(typeof(DinoNuggets), Size.Small, "Small Dino-Nuggets Combo")]
+        [InlineData(typeof(DinoNuggets), Size.Medium, "Medium Dino-Nuggets Combo")]
+        [InlineData(typeof(DinoNuggets), Size.Large, "Large Dino-Nuggets Combo")]
+        [InlineData(typeof(PrehistoricPBJ), Size.Small, "Small Prehistoric PB&J Combo")]
+        [InlineData(typeof(PrehistoricPBJ), Size.Medium, "Medium Prehistoric PB&J Combo")]
+        [InlineData(typeof(PrehistoricPBJ), Size.Large, "Large Prehistoric PB&J Combo")]
+        [InlineData(typeof(PterodactylWings), Size.Small, "Small Pterodactyl Wings Combo")]
+        [InlineData(typeof(PterodactylWings), Size.Medium, "Medium Pterodactyl Wings Combo")]
+        [InlineData(typeof(PterodactylWings), Size.Large, "Large Pterodactyl Wings Combo")]
+        [InlineData(typeof(SteakosaurusBurger), Size.Small, "Small Steakosaurus Burger Combo")]
+        [InlineData(typeof(SteakosaurusBurger), Size.Medium, "Medium Steakosaurus Burger Combo")]
+        [InlineData(typeof(SteakosaurusBurger), Size.Large, "Large Steakosaurus Burger Combo")]
+        [InlineData(typeof(TRexKingBurger), Size.Small, "Small T-Rex King Burger Combo")]
+        [InlineData(typeof(TRexKingBurger), Size.Medium, "Medium T-Rex King Burger Combo")]
+        [InlineData(typeof(TRexKingBurger), Size.Large, "Large T-Rex King Burger Combo")]
+        [InlineData(typeof(VelociWrap), Size.Small, "Small Veloci-Wrap Combo")]
+        [InlineData(typeof(VelociWrap), Size.Medium, "Medium Veloci-Wrap Combo")]
+        [InlineData(typeof(VelociWrap), Size.Large, "Large Veloci-Wrap Combo")]
+
+        public void ComboDescriptionShouldGiveName(Type type, Size size, string name)
         {
             Entree entree = (Entree)Activator.CreateInstance(type);
             CretaceousCombo combo = new CretaceousCombo(entree);
-            Assert.Equal($"Small {name}", combo.ToString());
+            combo.Size = size;
+            Assert.Equal(name, combo.ToString());
         }
 
         #endregion
