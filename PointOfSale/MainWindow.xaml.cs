@@ -45,6 +45,13 @@ namespace PointOfSale
             content.DataContext = OrderInterface.DataContext;
         }
 
+        public void OnDone(object sender, RoutedEventArgs args)
+        {
+            if (OrderInterface.CanGoBack)
+                OrderInterface.NavigationService.GoBack();
+            else
+                OrderInterface.NavigationService.Navigate(new MenuCategorySelection());
+        }
         
     }
 }

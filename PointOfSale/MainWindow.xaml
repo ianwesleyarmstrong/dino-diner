@@ -13,6 +13,14 @@
     <DockPanel>
         <local:OrderControl x:Name ="OrderList" DockPanel.Dock="Right" Width="200">
         </local:OrderControl>
+        <Grid DockPanel.Dock="Bottom">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition Width="200" ></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button Grid.Column="1" Click="OnDone" Height="30"> Go Back</Button>
+        </Grid>
         <Frame x:Name="OrderInterface" 
                Source="MenuCategorySelection.xaml"
                LoadCompleted="OnLoadCompleted"

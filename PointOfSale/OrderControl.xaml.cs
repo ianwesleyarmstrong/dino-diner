@@ -56,7 +56,7 @@ namespace PointOfSale
                 {
                     if (element.DataContext is IOrderItem item)
                     {
-                        order.Items.Remove(item);
+                        order.RemoveItem(item);
                     }
                 }
             }
@@ -66,7 +66,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.Items.CollectionChanged += OnCollectionChanged;
+                //order.Items.CollectionChanged += OnCollectionChanged;
             }
         }
 

@@ -39,7 +39,7 @@
                             </Grid.RowDefinitions>
                         </Grid>
                         <TextBlock Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0"></TextBlock>
-                        <ListBox ItemsSource="{Binding Path=Special, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"></ListBox>
+                        <ListView ItemsSource="{Binding Path=Special, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"></ListView>
                         <Button Click="OnRemoveItem" Content="X"  Grid.Row="0" Grid.Column="1" Background="Red" Foreground="White" Width="15"></Button>
                     </StackPanel>
                 </DataTemplate>

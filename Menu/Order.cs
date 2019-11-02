@@ -26,22 +26,18 @@ namespace DinoDiner.Menu
         public string[] Special { get; }
 
         /// <summary>
-        /// backing variable for list of items
+        /// collection of items in the order
         /// </summary>
-        private ObservableCollection<IOrderItem> items = new ObservableCollection<IOrderItem>();
+        List<IOrderItem> items = new List<IOrderItem>();
 
         /// <summary>
-        /// getter/setter for items in the order
+        /// backing variable for list of items
         /// </summary>
-        public ObservableCollection<IOrderItem> Items
+        private IOrderItem[] Items
         {
             get
             {
-                return items;
-            }
-            set
-            {
-                items = value;
+                return items.ToArray();
             }
         }
 
@@ -119,8 +115,24 @@ namespace DinoDiner.Menu
         /// <param name="i"></param>
         public void AddItem(IOrderItem i)
         {
-            Items.Add(i);
-            
+            items.Add(i);
+            i.PropertyChanged += OnPropertyChanged;
+            NotifyAllPropertiesChanged();
+           
+        }
+
+        /// <summary>
+        /// removes an item from the order
+        /// </summary>
+        /// <param name="i"></param>
+        public bool RemoveItem(IOrderItem i)
+        {
+            bool flag = items.Remove(i);
+            if (flag)
+            {
+                NotifyAllPropertiesChanged();
+            }
+            return flag;
         }
 
         /// <summary>
@@ -128,19 +140,24 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
-            Items.CollectionChanged += OnCollectionChanged;
-            //AddItem(new SteakosaurusBurger());
-            //AddItem(new Fryceritops());
-            //Triceritots t = new Triceritots();
-            //AddItem(t);
-            //t.Size = Size.Large;
+            AddItem(new SteakosaurusBurger());
         }
 
-        private void OnCollectionChanged(object sender, EventArgs args)
+       private void NotifyAllPropertiesChanged()
         {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SubTotalCost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SalesTaxCost"));
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("TotalCost"));
+            NotifyOfPropertyChanged("SubTotalCost");
+            NotifyOfPropertyChanged("SalesTaxCost");
+            NotifyOfPropertyChanged("TotalCost");
+            NotifyOfPropertyChanged("Items");
+        }
+        private void NotifyOfPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
+        {
+
         }
     }
 }
