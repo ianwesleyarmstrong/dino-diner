@@ -39,7 +39,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.AddItem(entree);
+                order.Add(entree);
                 this.Entree = entree;
             }
             NavigationService.Navigate(new MenuCategorySelection());

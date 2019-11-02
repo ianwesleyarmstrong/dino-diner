@@ -60,7 +60,7 @@ namespace PointOfSale
         {
             if (DataContext is Order order)
             {
-                order.AddItem(side);
+                order.Add(side);
                 this.Side = side;
             }
 

@@ -48,7 +48,7 @@ namespace PointOfSale
             }
         }
 
-        private void OnRemoveItem(object sender, RoutedEventArgs args)
+        private void OnRemove(object sender, RoutedEventArgs args)
         {
             if (DataContext is Order order)
             {
@@ -56,7 +56,7 @@ namespace PointOfSale
                 {
                     if (element.DataContext is IOrderItem item)
                     {
-                        order.RemoveItem(item);
+                        order.Remove(item);
                     }
                 }
             }

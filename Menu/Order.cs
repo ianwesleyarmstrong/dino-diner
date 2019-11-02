@@ -113,7 +113,7 @@ namespace DinoDiner.Menu
         /// adds each item to the order
         /// </summary>
         /// <param name="i"></param>
-        public void AddItem(IOrderItem i)
+        public void Add(IOrderItem i)
         {
             items.Add(i);
             i.PropertyChanged += OnPropertyChanged;
@@ -125,7 +125,7 @@ namespace DinoDiner.Menu
         /// removes an item from the order
         /// </summary>
         /// <param name="i"></param>
-        public bool RemoveItem(IOrderItem i)
+        public bool Remove(IOrderItem i)
         {
             bool flag = items.Remove(i);
             if (flag)
@@ -140,7 +140,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
-            AddItem(new SteakosaurusBurger());
+            Add(new SteakosaurusBurger());
         }
 
        private void NotifyAllPropertiesChanged()
