@@ -47,37 +47,78 @@ namespace PointOfSale
 
         public void AddBrontowurst(object sender, RoutedEventArgs args)
         {
-            AddEntree(new Brontowurst());
+            if (DataContext is Order order)
+            {
+                Brontowurst b = new Brontowurst();
+                order.Add(b);
+                this.Entree = b;
+                NavigationService.Navigate(new CustomizeBrontowurst(b));
+            }
         }
 
         public void AddDinoNuggets(object sender, RoutedEventArgs args)
         {
-            AddEntree(new DinoNuggets());
+            if (DataContext is Order order)
+            {
+                DinoNuggets d = new DinoNuggets();
+                order.Add(d);
+                this.Entree = d;
+                NavigationService.Navigate(new CustomizeDinoNuggets(d));
+            }
         }
 
         public void AddSteakosaurusBurger(object sender, RoutedEventArgs args)
         {
-            AddEntree(new SteakosaurusBurger());
+            if (DataContext is Order order)
+            {
+                SteakosaurusBurger s = new SteakosaurusBurger();
+                order.Add(s);
+                this.Entree = s;
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(s));
+            }
         }
 
         public void AddVelociwrap(object sender, RoutedEventArgs args)
         {
-            AddEntree(new VelociWrap());
+            if (DataContext is Order order)
+            {
+                VelociWrap v = new VelociWrap ();
+                order.Add(v);
+                this.Entree = v;
+                NavigationService.Navigate(new CustomizeVelociWrap(v));
+            }
         }
 
         public void AddTRexKingBurger(object sender, RoutedEventArgs args)
         {
-            AddEntree(new TRexKingBurger());
+            if (DataContext is Order order)
+            {
+                TRexKingBurger t = new TRexKingBurger();
+                order.Add(t);
+                this.Entree = t;
+                NavigationService.Navigate(new CustomizeTRexKingBurger(t));
+            }
         }
 
         public void AddPterodactylWings(object sender, RoutedEventArgs args)
         {
-            AddEntree(new PterodactylWings());
+            if (DataContext is Order order)
+            {
+                PterodactylWings p = new PterodactylWings();
+                order.Add(p);
+                this.Entree = p;
+            }
         }
 
         public void AddPrehistoricPBJ(object sender, RoutedEventArgs args)
         {
-            AddEntree(new PrehistoricPBJ());
+            if (DataContext is Order order)
+            {
+                PrehistoricPBJ p = new PrehistoricPBJ();
+                order.Add(p);
+                this.Entree = p;
+                NavigationService.Navigate(new CustomizePBJ(p));
+            }
         }
     }
 }

@@ -40,7 +40,7 @@ namespace MenuTest.Drinks
         public void ShouldHaveDefaultRoomForCream()
         {
             JurassicJava java = new JurassicJava();
-            Assert.False(java.LeaveRoomForCream);
+            Assert.False(java.RoomForCream);
         }
 
         [Fact]
@@ -106,11 +106,11 @@ namespace MenuTest.Drinks
         }
 
         [Fact]
-        public void ShouldLeaveRoomForCream()
+        public void ShouldRoomForCream()
         {
             JurassicJava java = new JurassicJava();
-            java.LeaveRoomForCream = true;
-            Assert.True(java.LeaveRoomForCream);
+            java.RoomForCream = true;
+            Assert.True(java.RoomForCream);
         }
 
         [Fact]
@@ -133,7 +133,7 @@ namespace MenuTest.Drinks
         public void SpecialShouldLeaveRoomForCream()
         {
             JurassicJava java = new JurassicJava();
-            java.LeaveRoomForCream = true;
+            java.LeaveRoomForCream();
             Assert.Collection<string>(java.Special,
                 item =>
                 {

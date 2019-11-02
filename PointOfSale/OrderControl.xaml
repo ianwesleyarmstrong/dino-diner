@@ -30,8 +30,8 @@
                     <StackPanel>
                         <Grid>
                             <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="*"></ColumnDefinition>
-                                <ColumnDefinition Width="15"></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition></ColumnDefinition>
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
                                 <RowDefinition></RowDefinition>
@@ -39,7 +39,7 @@
                             </Grid.RowDefinitions>
                         </Grid>
                         <TextBlock Text="{Binding Path=Description, UpdateSourceTrigger=PropertyChanged}" Grid.Row="0" Grid.Column="0"></TextBlock>
-                        <ListView ItemsSource="{Binding Path=Special, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.ColumnSpan="2" HorizontalAlignment="Left"></ListView>
+                        <ListView ItemsSource="{Binding Path=Special, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1"  HorizontalAlignment="Left"></ListView>
                         <Button Click="OnRemove" Content="X"  Grid.Row="0" Grid.Column="1" Background="Red" Foreground="White" Width="15"></Button>
                     </StackPanel>
                 </DataTemplate>

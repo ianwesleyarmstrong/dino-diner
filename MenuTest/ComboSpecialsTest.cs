@@ -41,7 +41,7 @@ namespace MenuTest
         {
             CretaceousCombo c = new CretaceousCombo(new Brontowurst());
             JurassicJava java = new JurassicJava();
-            java.LeaveRoomForCream = true;
+            java.RoomForCream = true;
             java.AddIce();
             c.Drink = java;
             string[] specials = { "Small Fryceritops", "Small Jurassic Java", "Add Ice", "Leave Room for Cream" };
@@ -56,7 +56,7 @@ namespace MenuTest
             trex.HoldMayo();
             CretaceousCombo c = new CretaceousCombo(trex);
             JurassicJava java = new JurassicJava();
-            java.LeaveRoomForCream = true;
+            java.RoomForCream = true;
             java.AddIce();
             c.Drink = java;
             Triceritots tt = new Triceritots();

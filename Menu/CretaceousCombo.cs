@@ -1,11 +1,12 @@
 ﻿using System.Collections.Generic;
+using System.ComponentModel;
 
 namespace DinoDiner.Menu
 {
     /// <summary>
     /// A class representing a combo meal
     /// </summary>
-    public class CretaceousCombo : IMenuItem
+    public class CretaceousCombo : IMenuItem, IOrderItem
     {
         // Backing Variables
         private Size size;
@@ -59,6 +60,9 @@ namespace DinoDiner.Menu
                 size = value;
                 Drink.Size = value;
                 Side.Size = value;
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Description");
+                NotifyOfPropertyChange("Price");
             }
         }
 
@@ -92,6 +96,9 @@ namespace DinoDiner.Menu
             return $"{Size} {Entree} Combo";
         }
 
+        /// <summary>
+        /// description of item
+        /// </summary>
         public string Description
         {
             get
@@ -100,6 +107,9 @@ namespace DinoDiner.Menu
             }
         }
 
+        /// <summary>
+        /// Special instructions for how to build the combo
+        /// </summary>
         public string[] Special
         {
             get
@@ -112,6 +122,22 @@ namespace DinoDiner.Menu
                 ingredients.AddRange(Drink.Special);
                 return ingredients.ToArray();
             }
+        }
+
+        /// <summary>
+        /// PropertyChanged event handler; notifies
+        /// of changes to the Price, Description, nad 
+        /// Special properties
+        /// </summary>
+        public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// helper funtion to notify of property changes
+        /// </summary>
+        /// <param name="propertyName"></param>
+        private void NotifyOfPropertyChange(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }

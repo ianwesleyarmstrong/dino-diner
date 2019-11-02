@@ -65,14 +65,14 @@ namespace DinoDiner.Menu
         {
             Size = Size.Small;
             Ice = false;
-            LeaveRoomForCream = false;
+            RoomForCream = false;
             Decaf = false;
         }
 
         /// <summary>
         /// method to leave room for cream at top of beverage
         /// </summary>
-        public bool LeaveRoomForCream
+        public bool RoomForCream
         {
             get
             {
@@ -81,7 +81,6 @@ namespace DinoDiner.Menu
             set
             {
                 room = value;
-                NotifyOfPropertyChange("Special");
             }
 
         }
@@ -208,6 +207,12 @@ namespace DinoDiner.Menu
         public override void HoldIce()
         {
             ice = false;
+            NotifyOfPropertyChange("Special");
+        }
+
+        public void LeaveRoomForCream()
+        {
+            RoomForCream = true;
             NotifyOfPropertyChange("Special");
         }
 
