@@ -15,7 +15,7 @@
             <ColumnDefinition></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
-        <Button Name="EntreeButton" Grid.Column="0">
+        <Button Name="EntreeButton" Grid.Column="0" Click="Entree_click">
             <StackPanel>
                 <TextBlock>
                     Current Entree
@@ -39,9 +39,9 @@
         </Button>
 
         <StackPanel Grid.Column="3">
-            <RadioButton x:Name="small" Content="Small" IsChecked="True" Style="{StaticResource {x:Type ToggleButton}}" Height="150"></RadioButton>
-            <RadioButton x:Name="medium" Content="Medium" Style="{StaticResource {x:Type ToggleButton}}" Height="150"></RadioButton>
-            <RadioButton x:Name="large" Content="Large" Style="{StaticResource {x:Type ToggleButton}}" Height="150"></RadioButton>
+            <RadioButton x:Name="small" Content="Small" IsChecked="True" Style="{StaticResource {x:Type ToggleButton}}" Height="120"></RadioButton>
+            <RadioButton x:Name="medium" Content="Medium" Style="{StaticResource {x:Type ToggleButton}}" Height="120"></RadioButton>
+            <RadioButton x:Name="large" Content="Large" Style="{StaticResource {x:Type ToggleButton}}" Height="120"></RadioButton>
 
         </StackPanel>
 

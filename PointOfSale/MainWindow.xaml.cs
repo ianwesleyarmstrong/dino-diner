@@ -28,21 +28,36 @@ namespace PointOfSale
             Order order = (Order)DataContext;
         }
 
-        public void OnLoadCompleted(object sender, NavigationEventArgs args)
+
+        /// <summary>
+        /// Sets the data context for the order interface
+        /// </summary>
+        private void BindDataContextToPage()
         {
-            SetFrameDataContext();
+            if (OrderInterface.Content is FrameworkElement element)
+            {
+                element.DataContext = OrderInterface.DataContext;
+            }
         }
 
-        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
+        /// <summary>
+        /// Sets data context when program loads
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnLoadCompleted(object sender, NavigationEventArgs args)
         {
-            SetFrameDataContext();
+            BindDataContextToPage();
         }
 
-        private void SetFrameDataContext()
+        /// <summary>
+        /// Updates the data context when items are changed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
+        private void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
         {
-            FrameworkElement content = OrderInterface.Content as FrameworkElement;
-            if (content == null) return;
-            content.DataContext = OrderInterface.DataContext;
+            BindDataContextToPage();
         }
 
         public void OnDone(object sender, RoutedEventArgs args)

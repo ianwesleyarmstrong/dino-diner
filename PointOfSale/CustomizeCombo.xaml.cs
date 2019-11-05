@@ -37,15 +37,20 @@ namespace PointOfSale
             this.EntreeButton.Content = Entree;
         }
 
+        private void Entree_click(object sender, RoutedEventArgs args)
+        {
+            this.EntreeButton.Content = NavigationService.Navigate(new EntreeSelection());
+        }
+
         private void Side_Click(object sender, RoutedEventArgs e)
         {
-            this.SideButton.Content =  NavigationService.Navigate(new SideSelection());
+            this.SideButton.Content = NavigationService.Navigate(new SideSelection());
         }
 
 
         private void Drink_Click(object sender, RoutedEventArgs e)
         {
-           this.DrinkButton.Content= NavigationService.Navigate(new DrinkSelection());
+           this.DrinkButton.Content = NavigationService.Navigate(new DrinkSelection());
         }
 
         

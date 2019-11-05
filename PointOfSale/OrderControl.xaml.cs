@@ -36,7 +36,20 @@ namespace PointOfSale
             }
             else if (OrderItems.SelectedItem is Entree entree)
             {
-                NavigationService?.Navigate(new EntreeSelection(entree));
+                if (entree is PrehistoricPBJ p)
+                    NavigationService?.Navigate(new CustomizePBJ(p));
+                else if (entree is Brontowurst b)
+                    NavigationService?.Navigate(new CustomizeBrontowurst(b));
+                else if (entree is VelociWrap v)
+                    NavigationService?.Navigate(new CustomizeVelociWrap(v));
+                else if (entree is TRexKingBurger t)
+                    NavigationService?.Navigate(new CustomizeTRexKingBurger(t));
+                else if (entree is SteakosaurusBurger s)
+                    NavigationService?.Navigate(new CustomizeSteakosaurusBurger(s));
+                else if (entree is DinoNuggets d)
+                    NavigationService?.Navigate(new CustomizeDinoNuggets(d));
+                else
+                    NavigationService?.Navigate(new EntreeSelection());
             }
             else if (OrderItems.SelectedItem is Drink drink)
             {
@@ -62,22 +75,6 @@ namespace PointOfSale
             }
         }
 
-        private void MountItemListener()
-        {
-            if (DataContext is Order order)
-            {
-                //order.Items.CollectionChanged += OnCollectionChanged;
-            }
-        }
-
-        public void OnDataContextChanged(object sender, DependencyPropertyChangedEventArgs args)
-        {
-            MountItemListener();
-        }
-
-        public void OnCollectionChanged(object sender, EventArgs args)
-        {
-
-        }
+      
     }
 }

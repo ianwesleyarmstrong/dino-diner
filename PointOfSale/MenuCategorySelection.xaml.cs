@@ -27,7 +27,7 @@ namespace PointOfSale
 
         private void SelectCombo(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new ComboSelection());
+            NavigationService.Navigate(new CustomizeCombo());
         }
 
         private void SelectEntree(object sender, RoutedEventArgs e)

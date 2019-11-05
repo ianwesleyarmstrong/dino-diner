@@ -28,7 +28,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// collection of items in the order
         /// </summary>
-        List<IOrderItem> items = new List<IOrderItem>();
+        readonly List<IOrderItem> items = new List<IOrderItem>();
 
         /// <summary>
         /// backing variable for list of items
@@ -140,7 +140,7 @@ namespace DinoDiner.Menu
         /// </summary>
         public Order()
         {
-            Add(new SteakosaurusBurger());
+            
         }
 
        private void NotifyAllPropertiesChanged()
@@ -157,7 +157,7 @@ namespace DinoDiner.Menu
 
         private void OnPropertyChanged(object sender, PropertyChangedEventArgs args)
         {
-
+            NotifyAllPropertiesChanged();
         }
     }
 }
