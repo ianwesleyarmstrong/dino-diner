@@ -33,7 +33,7 @@ namespace DinoDiner.Menu
         /// <summary>
         /// backing variable for list of items
         /// </summary>
-        private IOrderItem[] Items
+        public IOrderItem[] Items
         {
             get
             {

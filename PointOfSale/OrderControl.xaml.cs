@@ -30,6 +30,7 @@ namespace PointOfSale
 
         private void OnSelectionChanged(object sender, SelectionChangedEventArgs args)
         {
+            
             if (OrderItems.SelectedItem is Side side)
             {
                 NavigationService?.Navigate(new SideSelection(side));
@@ -59,6 +60,7 @@ namespace PointOfSale
             {
                 NavigationService?.Navigate(new CustomizeCombo());
             }
+            
         }
 
         private void OnRemove(object sender, RoutedEventArgs args)

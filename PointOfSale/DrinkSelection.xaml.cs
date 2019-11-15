@@ -21,10 +21,23 @@ namespace PointOfSale
     /// </summary>
     public partial class DrinkSelection : Page
     {
+        /// <summary>
+        /// Drink to be modified
+        /// </summary>
         public Drink Drink { get; set; }
-      
 
+        /// <summary>
+        /// previous combo page
+        /// </summary>
+        private CustomizeCombo customizeComboPage;
 
+        private FlavorSelection flavorSelectionPage;
+
+        private bool isPartOfCombo;
+
+        /// <summary>
+        /// no arg construcor
+        /// </summary>
         public DrinkSelection()
         {
             InitializeComponent();
@@ -34,12 +47,93 @@ namespace PointOfSale
             sweet.IsEnabled = false;
         }
 
+        /// <summary>
+        /// 3 arg construcot
+        /// </summary>
+        public DrinkSelection(Drink drink, bool combo, CustomizeCombo comboPage)
+        {
+            InitializeComponent();
+            this.isPartOfCombo = combo;
+            this.customizeComboPage = comboPage;
+            if (this.isPartOfCombo)
+            {
+                this.customizeComboPage.Combo.Drink = drink;
+                Drink = customizeComboPage.Combo.Drink;
+            }
+            if (drink is Sodasaurus)
+            {
+                Lemon.IsEnabled = false;
+                decaf.IsEnabled = false;
+                Flavor.IsEnabled = true;
+                sweet.IsEnabled = false;
+            }
+            else if (drink is Tyrannotea)
+            {
+                Lemon.IsEnabled = false;
+                decaf.IsEnabled = false;
+                Flavor.IsEnabled = true;
+                sweet.IsEnabled = false;
+            }
+            else if (drink is JurassicJava)
+            {
+                Lemon.IsEnabled = false;
+                decaf.IsEnabled = true;
+                Flavor.IsEnabled = false;
+                sweet.IsEnabled = true;
+            }
+            else if (drink is Water)
+            {
+                Lemon.IsEnabled = true;
+                decaf.IsEnabled = false;
+                Flavor.IsEnabled = false;
+                sweet.IsEnabled = false;
+            }
+        }
+    
+
+        /// <summary>
+        /// 1 arg constructor
+        /// </summary>
+        /// <param name="drink"></param>
         public DrinkSelection(Drink drink)
         {
             InitializeComponent();
             this.Drink = drink;
+            if (drink is Sodasaurus)
+            {
+                Lemon.IsEnabled = false;
+                decaf.IsEnabled = false;
+                Flavor.IsEnabled = true;
+                sweet.IsEnabled = false;
+            }
+            else if (drink is Tyrannotea)
+            {
+                Lemon.IsEnabled = false;
+                decaf.IsEnabled = false;
+                Flavor.IsEnabled = true;
+                sweet.IsEnabled = false;
+            }
+            else if (drink is JurassicJava)
+            {
+                Lemon.IsEnabled = false;
+                decaf.IsEnabled = true;
+                Flavor.IsEnabled = false;
+                sweet.IsEnabled = true;
+            }
+            else if (drink is Water)
+            {
+                Lemon.IsEnabled = true;
+                decaf.IsEnabled = false;
+                Flavor.IsEnabled = false;
+                sweet.IsEnabled = false;
+            }
         }
 
+        /// <summary>
+        /// adds a sodasaurus
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         public void AddSoda(object sender, RoutedEventArgs e)
         {
             SelectDrink(new Sodasaurus());
@@ -78,11 +172,13 @@ namespace PointOfSale
 
         private void Flavor_Click(object sender, RoutedEventArgs e)
         {
-            FlavorSelection FlavorSel = new FlavorSelection
-            {
-                selection = this
-            };
+            FlavorSelection FlavorSel = new FlavorSelection();
+            FlavorSel.selection = this;
             NavigationService.Navigate(FlavorSel);
+            if (isPartOfCombo)
+            {
+                NotifyOfPropertyChange("Special");
+            }
             
         }
 
@@ -90,9 +186,17 @@ namespace PointOfSale
         {
            if (this.Drink is Tyrannotea tea)
             {
-                Tyrannotea t = tea;
-                t.AddLemon();
-                this.Drink = t;
+                if (tea.Lemon == false)
+                {
+                    tea.AddLemon();
+                    this.Drink = tea;
+                }
+                else
+                {
+                    tea.Lemon = false;
+                    this.Drink = tea;
+                }
+                
             }
            else if (this.Drink is Water water)
             {
@@ -107,13 +211,30 @@ namespace PointOfSale
            if (this.Drink is Tyrannotea tea)
             {
                 Tyrannotea t = tea;
-                t.Sweet = true; ;
-                this.Drink = t;
+                if (t.Sweet == false)
+                {
+                    t.Sweet = true;
+                    this.Drink = t;
+                }
+                else
+                {
+                    t.Sweet = false;
+                    this.Drink = t;
+                }
+                
             }
            if (this.Drink is JurassicJava java)
             {
-                java.Sweet = true;
-                this.Drink = java;
+                if (java.Sweet == false)
+                {
+                    java.Sweet = true;
+                    this.Drink = java;
+                }
+                else
+                {
+                    java.Sweet = false;
+                    this.Drink = java;
+                }
             }
         }
 
@@ -122,8 +243,16 @@ namespace PointOfSale
            if (this.Drink is JurassicJava java)
            {
                 JurassicJava j = java;
-                j.Decaf = true;
-                this.Drink = j;
+                if (j.Decaf == false)
+                {
+                    j.Decaf = true;
+                    this.Drink = j;
+                }
+                else
+                {
+                    j.Decaf = false;
+                    this.Drink = j;
+                }
            }
         }
 
@@ -133,12 +262,22 @@ namespace PointOfSale
             {
                 this.Drink.Size = size;
             }
+            if (isPartOfCombo)
+            {
+                NotifyOfPropertyChange("Special");
+                NotifyOfPropertyChange("Price");
+            }
         }
 
         private void SelectDrink(DinoDiner.Menu.Drink drink)
         {
             if (DataContext is Order order)
             {
+                if (isPartOfCombo)
+                {
+                    customizeComboPage.Combo.Drink = drink;
+                    this.Drink = customizeComboPage.Combo.Drink;
+                }
                 order.Add(drink);
                 this.Drink = drink;
             }
@@ -159,9 +298,31 @@ namespace PointOfSale
             SelectSize(DinoDiner.Menu.Size.Small);
         }
 
+        /// <summary>
+        /// click to navigate back
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="args"></param>
         public void DoneClick(object sender, RoutedEventArgs args)
         {
-            NavigationService.Navigate(new MenuCategorySelection());
+            if (NavigationService.CanGoBack)
+            {
+                NavigationService.GoBack();
+            }
+            else
+                NavigationService.Navigate(new MenuCategorySelection());
+        }
+
+        /// <summary>
+        /// notifies combo if something has changed
+        /// </summary>
+        /// <param name="property"></param>
+        public void NotifyOfPropertyChange(string property)
+        {
+            if (isPartOfCombo)
+            {
+                customizeComboPage.Combo.NotifyOfPropertyChange(property);
+            }
         }
 
 

@@ -13,8 +13,8 @@
             <RowDefinition Height="20"/>
             <RowDefinition Height="30"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="Current Order" Grid.Row="0" TextAlignment="Center" FontWeight="Bold"/>
-        <ListBox Grid.Row="1" Name="OrderItems" ItemsSource="{Binding Path=Items, UpdateSourceTrigger=PropertyChanged}" IsSynchronizedWithCurrentItem="True" SelectionChanged="OnSelectionChanged">
+        <TextBlock Text="Current Order" Grid.Row="0" TextAlignment="Center"/>
+        <ListBox Grid.Row="1" Name="OrderItems" ItemsSource="{Binding Path=Items}" SelectionChanged="OnSelectionChanged">
             <ListBox.ItemTemplate>
                 <DataTemplate>
                     <StackPanel Width="185">

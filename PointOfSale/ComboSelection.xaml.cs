@@ -27,7 +27,7 @@ namespace PointOfSale
 
         private void Entree_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new CustomizeCombo(((Button)sender).Name));
+            //NavigationService.Navigate(new CustomizeCombo(((Button)sender).Name));
             
         }
 

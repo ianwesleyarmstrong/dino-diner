@@ -135,7 +135,7 @@ namespace DinoDiner.Menu
         /// helper funtion to notify of property changes
         /// </summary>
         /// <param name="propertyName"></param>
-        private void NotifyOfPropertyChange(string propertyName)
+        public void NotifyOfPropertyChange(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }

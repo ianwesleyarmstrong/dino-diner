@@ -35,9 +35,10 @@ namespace PointOfSale
 
         private void SelectFlavor(SodasaurusFlavor flavor)
         {
-            Sodasaurus s = new Sodasaurus();
+            Sodasaurus s = (Sodasaurus)selection.Drink;
             s.Flavor = flavor;
             selection.Drink = s;
+            selection.NotifyOfPropertyChange("Special");
             NavigationService.Navigate(selection);
         }
 

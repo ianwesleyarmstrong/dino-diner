@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using DinoDiner.Menu;
 
 namespace PointOfSale
 {
@@ -21,36 +22,52 @@ namespace PointOfSale
     public partial class CustomizeCombo : Page
     {
 
-        private string Entree;
-        private string Side;
-        private string Drink;
+        public CretaceousCombo Combo { get; set; }
 
         public CustomizeCombo()
         {
             InitializeComponent();
         }
 
-        public CustomizeCombo(string entree)
+        public CustomizeCombo(CretaceousCombo combo)
         {
-            this.Entree = entree;
+            this.Combo = combo;
             InitializeComponent();
-            this.EntreeButton.Content = Entree;
+            UpdateButtons();            
         }
 
         private void Entree_click(object sender, RoutedEventArgs args)
         {
-            this.EntreeButton.Content = NavigationService.Navigate(new EntreeSelection());
+            if (Combo.Entree is Brontowurst b)
+                NavigationService.Navigate(new CustomizeBrontowurst(b));
+            else if (Combo.Entree is DinoNuggets d)
+                NavigationService.Navigate(new CustomizeDinoNuggets(d));
+            else if (Combo.Entree is PrehistoricPBJ p)
+                NavigationService.Navigate(new CustomizePBJ(p));
+            else if (Combo.Entree is SteakosaurusBurger s)
+                NavigationService.Navigate(new CustomizeSteakosaurusBurger(s));
+            else if (Combo.Entree is TRexKingBurger t)
+                NavigationService.Navigate(new CustomizeTRexKingBurger(t));
+            else if (Combo.Entree is VelociWrap v)
+                NavigationService.Navigate(new CustomizeVelociWrap(v));
         }
 
         private void Side_Click(object sender, RoutedEventArgs e)
         {
-            this.SideButton.Content = NavigationService.Navigate(new SideSelection());
+            NavigationService.Navigate(new SideSelection(Combo.Side, true, this));
         }
 
 
         private void Drink_Click(object sender, RoutedEventArgs e)
         {
-           this.DrinkButton.Content = NavigationService.Navigate(new DrinkSelection());
+           NavigationService.Navigate(new DrinkSelection(Combo.Drink, true, this));
+        }
+
+        private void UpdateButtons()
+        {
+            DrinkButton.Content = Combo.Drink.Description;
+            SideButton.Content = Combo.Side.Description;
+            EntreeButton.Content = Combo.Entree.Description;
         }
 
         
