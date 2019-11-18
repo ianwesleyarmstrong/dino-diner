@@ -202,6 +202,7 @@ namespace DinoDiner.Menu
             {
                 List<string> ingredients = new List<string>();
                 ingredients.Add("Water");
+                ingredients.Add("Tea");
                 if (Lemon)
                 {
                     ingredients.Add("Lemon");

@@ -134,6 +134,7 @@ namespace PointOfSale
                     order.Add(side);
                     this.Side = side;
                 }
+               
             }
 
         }
@@ -147,10 +148,10 @@ namespace PointOfSale
             if (this.Side != null)
             {
                 this.Side.Size = size;
+                NotifyOfPropertyChange("Price");
                 if (isPartOfCombo)
                 {
                     NotifyOfPropertyChange("Special");
-                    NotifyOfPropertyChange("Price");
                 }
                 if (NavigationService.CanGoBack)
                 {
@@ -200,6 +201,8 @@ namespace PointOfSale
         {
             customizeComboPage.Combo.NotifyOfPropertyChange(property);
         }
+
+       
 
     }
 }

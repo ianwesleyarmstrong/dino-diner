@@ -63,19 +63,25 @@
 
         </StackPanel>
         <StackPanel Name="DynamicPanel" Grid.Column="5">
-            <RadioButton Name="Lemon" Style="{StaticResource {x:Type ToggleButton}}" Height="100" Click="OnLemon">
+            <RadioButton Name="Lemon" Style="{StaticResource {x:Type ToggleButton}}" Height="75" Click="OnLemon">
                 Lemon
             </RadioButton>
-            <RadioButton Name="decaf" Style="{StaticResource {x:Type ToggleButton}}" Height="100" Click="OnDecaf">
+            <RadioButton Name="decaf" Style="{StaticResource {x:Type ToggleButton}}" Height="75" Click="OnDecaf">
                 Decaf
             </RadioButton>
-            <RadioButton Name="sweet" Style="{StaticResource {x:Type ToggleButton}}" Height="100" Click="OnSweet">
+            <RadioButton Name="sweet" Style="{StaticResource {x:Type ToggleButton}}" Height="75" Click="OnSweet">
                 Sweet
             </RadioButton>
-            <Button Name="Flavor" Click="Flavor_Click" Height="100">
+            <RadioButton Name="Cream" Style="{StaticResource {x:Type ToggleButton}}" Height="75" Click="OnCream">
+                Cream
+            </RadioButton>
+            <RadioButton Name="Ice" Style="{StaticResource {x:Type ToggleButton}}" Height="75" Click="OnIce">
+                Ice
+            </RadioButton>
+            <Button Name="Flavor" Click="Flavor_Click" Height="75">
                 Flavor
             </Button>
-            <Button Name="Done" Click="DoneClick" Height="50">Done</Button>
+            
         </StackPanel>
     </Grid>
 </Page>

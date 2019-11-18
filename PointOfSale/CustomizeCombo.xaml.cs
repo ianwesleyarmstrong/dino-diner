@@ -63,11 +63,36 @@ namespace PointOfSale
            NavigationService.Navigate(new DrinkSelection(Combo.Drink, true, this));
         }
 
+
+        private void SelectSmall(object sender, RoutedEventArgs args)
+        {
+            Combo.Size = DinoDiner.Menu.Size.Small;
+            UpdateButtons();
+        }
+
+        private void SelectMedium(object sender, RoutedEventArgs args)
+        {
+            Combo.Size = DinoDiner.Menu.Size.Medium;
+            UpdateButtons();
+        }
+
+        private void SelectLarge(object sender, RoutedEventArgs args)
+        {
+            Combo.Size = DinoDiner.Menu.Size.Large;
+            UpdateButtons();
+        }
+
         private void UpdateButtons()
         {
             DrinkButton.Content = Combo.Drink.Description;
             SideButton.Content = Combo.Side.Description;
             EntreeButton.Content = Combo.Entree.Description;
+        }
+
+
+        protected void OnPageLoaded(object sender, RoutedEventArgs args)
+        {
+            UpdateButtons();
         }
 
         
