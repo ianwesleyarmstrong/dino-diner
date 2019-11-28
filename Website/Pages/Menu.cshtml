@@ -12,12 +12,12 @@
 
 @for (int i = 0; i < Model.Menu.AvailableCombos.Count; i++)
 {
-    <div>
+    <div class="menu-item">
         @if (Model.Menu.AvailableCombos[i] is CretaceousCombo combo)
         {
             <h3>@combo.ToString()</h3>
             <ul>
-                <li>Price: $@String.Format("{0:0.00}",combo.Price)</li>
+                <li>Price: $@String.Format("{0:0.00}", combo.Price)</li>
                 <li>Calories: @combo.Calories</li>
                 <li>@combo.Entree.ToString()</li>
                 <li>
@@ -57,7 +57,7 @@
 <h2> Entrees </h2>
 @for (int i = 0; i < Model.Menu.AvailableEntrees.Count; i++)
 {
-    <div>
+    <div class="menu-item">
         @if (Model.Menu.AvailableEntrees[i] is Entree entree)
         {
             <b>@entree.ToString()</b>
@@ -82,7 +82,7 @@
 <h2> Sides </h2>
 @for (int i = 0; i < Model.Menu.AvailableSides.Count; i++)
 {
-    <div>
+    <div class="menu-item">
         @if (Model.Menu.AvailableSides[i] is Side side)
         {
             <b>@side.ToString()</b>
@@ -107,7 +107,7 @@
 <h2> Drinks </h2>
 @for (int i = 0; i < Model.Menu.AvailableDrinks.Count; i++)
 {
-    <div>
+    <div class="menu-item">
         @if (Model.Menu.AvailableDrinks[i] is Drink drink)
         {
             <b>@drink.ToString()</b>
