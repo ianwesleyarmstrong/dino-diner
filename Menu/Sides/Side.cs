@@ -35,6 +35,9 @@ namespace DinoDiner.Menu
 
         public abstract string[] Special { get; }
 
+        public abstract Side Medium();
+        public abstract Side Large();
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

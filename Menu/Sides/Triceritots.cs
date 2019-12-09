@@ -109,7 +109,25 @@ namespace DinoDiner.Menu
             this.size = Size.Small;
             this.Price = 0.99;
             this.Calories = 352;
+        }
 
+        /// <summary>
+        /// Changes the sideto size medium
+        /// </summary>
+        /// <returns></returns>
+        public override Side Medium()
+        {
+            this.Size = Size.Medium;
+            return this;
+        }
+        /// <summary>
+        /// canges the side to size large
+        /// </summary>
+        /// <returns></returns>
+        public override Side Large()
+        {
+            this.Size = Size.Large;
+            return this;
         }
 
         /// <summary>

@@ -108,6 +108,25 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Changes the sideto size medium
+        /// </summary>
+        /// <returns></returns>
+        public CretaceousCombo Medium()
+        {
+            this.Size = Size.Medium;
+            return this;
+        }
+        /// <summary>
+        /// canges the side to size large
+        /// </summary>
+        /// <returns></returns>
+        public CretaceousCombo Large()
+        {
+            this.Size = Size.Large;
+            return this;
+        }
+
+        /// <summary>
         /// Special instructions for how to build the combo
         /// </summary>
         public string[] Special

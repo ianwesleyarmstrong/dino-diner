@@ -28,6 +28,7 @@ namespace DinoDiner.Menu
                 if (availableMenuItems == null)
                 {
                     availableMenuItems = new List<IMenuItem>();
+                    // Entrees
                     availableMenuItems.Add(new Brontowurst());
                     availableMenuItems.Add(new DinoNuggets());
                     availableMenuItems.Add(new PrehistoricPBJ());
@@ -35,13 +36,22 @@ namespace DinoDiner.Menu
                     availableMenuItems.Add(new SteakosaurusBurger());
                     availableMenuItems.Add(new TRexKingBurger());
                     availableMenuItems.Add(new VelociWrap());
-                    availableMenuItems.Add(new Fryceritops());
-                    availableMenuItems.Add(new MeteorMacAndCheese());
-                    availableMenuItems.Add(new MezzorellaSticks());
-                    availableMenuItems.Add(new Triceritots());
-                    availableMenuItems.Add(new JurassicJava());
-                    availableMenuItems.Add(new Sodasaurus());
-                    availableMenuItems.Add(new Tyrannotea());
+                    //sides with all sizes
+                    Fryceritops fry = new Fryceritops();
+                    availableMenuItems.Add(fry);
+                    MeteorMacAndCheese mmc = new MeteorMacAndCheese();
+                    availableMenuItems.Add(mmc);
+                    MezzorellaSticks mezz = new MezzorellaSticks();
+                    availableMenuItems.Add(mezz);
+                    Triceritots tt = new Triceritots();
+                    availableMenuItems.Add(tt);
+                    //drinks
+                    JurassicJava jj = new JurassicJava();
+                    availableMenuItems.Add(jj);
+                    Sodasaurus soda = new Sodasaurus();
+                    availableMenuItems.Add(soda);
+                    Tyrannotea tea = new Tyrannotea();
+                    availableMenuItems.Add(tea);
                     availableMenuItems.Add(new Water());
                     availableMenuItems.Add(new CretaceousCombo(new Brontowurst()));
                     availableMenuItems.Add(new CretaceousCombo(new DinoNuggets()));

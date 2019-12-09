@@ -116,6 +116,25 @@ namespace DinoDiner.Menu
         }
 
         /// <summary>
+        /// Changes the sideto size medium
+        /// </summary>
+        /// <returns></returns>
+        public override Side Medium()
+        {
+            this.Size = Size.Medium;
+            return this;
+        }
+        /// <summary>
+        /// canges the side to size large
+        /// </summary>
+        /// <returns></returns>
+        public override Side Large()
+        {
+            this.Size = Size.Large;
+            return this;
+        }
+
+        /// <summary>
         /// override of default ToString method
         /// </summary>
         /// <returns> name of item </returns>

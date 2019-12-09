@@ -11,7 +11,6 @@
         display: flex;
         flex-direction: row;
         flex: 0 auto;
-        width: 800px;
     }
 
     .exclude-ingredients {
@@ -29,11 +28,15 @@
         flex-direction: column;
     }
 
-
     form {
         display: flex;
         flex-direction: column;
         background-color: lightgrey;
+    }
+
+    #cssTable td {
+        text-align: center;
+        vertical-align: middle;
     }
 </style>
 
@@ -41,140 +44,13 @@
 <div id="container">
 
     @*<div id="menu">
-        <h1>Menu</h1>
+            <h1>Menu</h1>
 
-        <h2> Combos</h2>
-        @for (int i = 0; i < Menu.AvailableCombos.Count; i++)
-        {
-            <div class="menu-item">
-                @if (Menu.AvailableCombos[i] is CretaceousCombo combo)
-                {
-                    <h3>@combo.ToString()</h3>
-                    <ul>
-                        <li>Price: $@String.Format("{0:0.00}", combo.Price)</li>
-                        <li>Calories: @combo.Calories</li>
-                        <li>@combo.Entree.ToString()</li>
-                        <li>
-                            Ingredients:
-                            <ul>
-                                @for (int j = 0; j < combo.Entree.Ingredients.Count; j++)
-                                {
-                                    <li>@combo.Entree.Ingredients[j]</li>
-                                }
-                            </ul>
-                        </li>
-                        <li>@combo.Side.ToString()</li>
-                        <li>
-                            Ingredients:
-                            <ul>
-                                @for (int j = 0; j < combo.Side.Ingredients.Count; j++)
-                                {
-                                    <li>@combo.Side.Ingredients[j]</li>
-                                }
-                            </ul>
-                        </li>
-                        <li>@combo.Drink.ToString()</li>
-                        <li>
-                            Ingredients:
-                            <ul>
-                                @for (int j = 0; j < combo.Drink.Ingredients.Count; j++)
-                                {
-                                    <li>@combo.Drink.Ingredients[j]</li>
-                                }
-                            </ul>
-                        </li>
-                    </ul>
-                }
-            </div>
-        }
-
-        <h2> Entrees </h2>
-        @for (int i = 0; i < Menu.AvailableEntrees.Count; i++)
-        {
-            <div class="menu-item">
-                @if (Menu.AvailableEntrees[i] is Entree entree)
-                {
-                    <b>@entree.ToString()</b>
-                    <ul>
-                        <li> Price: $@String.Format("{0:0.00}", entree.Price)</li>
-                        <li>Calories: @entree.Calories</li>
-                        <li>
-                            Ingredients:
-                            <ul>
-                                @for (int j = 0; j < entree.Ingredients.Count; j++)
-                                {
-                                    <li>@entree.Ingredients[j]</li>
-                                }
-                            </ul>
-                        </li>
-                    </ul>
-                }
-            </div>
-        }
-
-
-        <h2> Sides </h2>
-        @for (int i = 0; i < Menu.AvailableSides.Count; i++)
-        {
-            <div class="menu-item">
-                @if (Menu.AvailableSides[i] is Side side)
-                {
-                    <b>@side.ToString()</b>
-                    <ul>
-                        <li> Price: $@String.Format("{0:0.00}", side.Price)</li>
-                        <li>Calories: @side.Calories</li>
-                        <li>
-                            Ingredients:
-                            <ul>
-                                @for (int j = 0; j < side.Ingredients.Count; j++)
-                                {
-                                    <li>@side.Ingredients[j]</li>
-                                }
-                            </ul>
-                        </li>
-                    </ul>
-                }
-            </div>
-        }
-
-
-        <h2> Drinks </h2>
-        @for (int i = 0; i < Menu.AvailableDrinks.Count; i++)
-        {
-            <div class="menu-item">
-                @if (Menu.AvailableDrinks[i] is Drink drink)
-                {
-                    <b>@drink.ToString()</b>
-                    <ul>
-                        <li> Price: $@String.Format("{0:0.00}", drink.Price)</li>
-                        <li>Calories: @drink.Calories</li>
-                        <li>
-                            Ingredients:
-                            <ul>
-                                @for (int j = 0; j < drink.Ingredients.Count; j++)
-                                {
-                                    <li>@drink.Ingredients[j]</li>
-                                }
-                            </ul>
-                        </li>
-                    </ul>
-                }
-            </div>
-        }
-    </div>*@
-
-
-    <div id="menu">
-        <h1>Menu</h1>
-
-        @if (Model.ComboList != null && Model.ComboList.Count > 0)
-        {
-            
             <h2> Combos</h2>
-            @for (int i = 0; i < Model.ComboList.Count; i++)
+            @for (int i = 0; i < Menu.AvailableCombos.Count; i++)
             {
                 <div class="menu-item">
-                    @if (Model.ComboList[i] is CretaceousCombo combo)
+                    @if (Menu.AvailableCombos[i] is CretaceousCombo combo)
                     {
                         <h3>@combo.ToString()</h3>
                         <ul>
@@ -214,15 +90,12 @@
                     }
                 </div>
             }
-        }
 
-        @if (Model.EntreeList != null  && Model.EntreeList.Count > 0)
-        {
             <h2> Entrees </h2>
-            @for (int i = 0; i < Model.EntreeList.Count; i++)
+            @for (int i = 0; i < Menu.AvailableEntrees.Count; i++)
             {
                 <div class="menu-item">
-                    @if (Model.EntreeList[i] is Entree entree)
+                    @if (Menu.AvailableEntrees[i] is Entree entree)
                     {
                         <b>@entree.ToString()</b>
                         <ul>
@@ -241,16 +114,13 @@
                     }
                 </div>
             }
-        }
 
 
-        @if (Model.SideList != null  && Model.SideList.Count > 0)
-        {
             <h2> Sides </h2>
-            @for (int i = 0; i < Model.SideList.Count; i++)
+            @for (int i = 0; i < Menu.AvailableSides.Count; i++)
             {
                 <div class="menu-item">
-                    @if (Model.SideList[i] is Side side)
+                    @if (Menu.AvailableSides[i] is Side side)
                     {
                         <b>@side.ToString()</b>
                         <ul>
@@ -269,15 +139,13 @@
                     }
                 </div>
             }
-        }
 
-        @if (Model.DrinkList != null && Model.DrinkList.Count > 0)
-        {
+
             <h2> Drinks </h2>
-            @for (int i = 0; i < Model.DrinkList.Count; i++)
+            @for (int i = 0; i < Menu.AvailableDrinks.Count; i++)
             {
                 <div class="menu-item">
-                    @if (Model.DrinkList[i] is Drink drink)
+                    @if (Menu.AvailableDrinks[i] is Drink drink)
                     {
                         <b>@drink.ToString()</b>
                         <ul>
@@ -296,9 +164,292 @@
                     }
                 </div>
             }
+        </div>*@
+
+    <div id="menu">
+        <h1>Menu</h1>
+
+        <h2>Cretaceous Combos</h2>
+        @foreach (CretaceousCombo combo in Model.MenuList.OfType<CretaceousCombo>())
+        {
+            <div class="menu-item">
+                <h4>@combo.ToString().Substring(combo.ToString().IndexOf(" "))</h4>
+                <table border="1">
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Calories</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>$@String.Format("{0:0.00}", combo.Price)</td>
+                        <td>@combo.Calories</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>$@String.Format("{0:0.00}", combo.Medium().Price)</td>
+                        <td>@combo.Medium().Calories</td>
+                    </tr>
+                    <tr>
+                        <td>Large</td>
+                        <td>$@String.Format("{0:0.00}", combo.Large().Price)</td>
+                        <td>@combo.Large().Calories</td>
+                    </tr>
+                </table>
+
+                Ingredients:
+                <ul>
+                    @for (int j = 0; j < combo.Ingredients.Count; j++)
+                    {
+                        <li>@combo.Ingredients[j]</li>
+                    }
+                </ul>
+            </div>
         }
 
+        <h2>Entrees</h2>
+        @foreach (Entree entree in Model.MenuList.OfType<Entree>())
+        {
+            <div class="menu-item">
+                <h4>@entree.ToString()</h4>
+                <table border="1">
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Calories</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>$@String.Format("{0:0.00}", entree.Price)</td>
+                        <td>@entree.Calories</td>
+                    </tr>
+                </table>
+
+                Ingredients:
+                <ul>
+                    @for (int j = 0; j < entree.Ingredients.Count; j++)
+                    {
+                        <li>@entree.Ingredients[j]</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <h2>Sides</h2>
+        @foreach (Side side in Model.MenuList.OfType<Side>())
+        {
+            <div class="menu-item">
+                <h4>@side.ToString().Substring(side.ToString().IndexOf(" "))</h4>
+                <table border="1">
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Calories</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>$@String.Format("{0:0.00}", side.Price)</td>
+                        <td>@side.Calories</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>$@String.Format("{0:0.00}", side.Medium().Price)</td>
+                        <td>@side.Medium().Calories</td>
+                    </tr>
+                    <tr>
+                        <td>Large</td>
+                        <td>$@String.Format("{0:0.00}", side.Large().Price)</td>
+                        <td>@side.Large().Calories</td>
+                    </tr>
+                </table>
+
+                Ingredients:
+                <ul>
+                    @for (int j = 0; j < side.Ingredients.Count; j++)
+                    {
+                        <li>@side.Ingredients[j]</li>
+                    }
+                </ul>
+            </div>
+        }
+
+        <h2>Drink</h2>
+        @foreach (Drink drink in Model.MenuList.OfType<Drink>())
+        {
+
+            <div class="menu-item">
+                <h4>@drink.ToString().Substring(drink.ToString().IndexOf(" "))</h4>
+                <table border="1">
+                    <tr>
+                        <th>Size</th>
+                        <th>Price</th>
+                        <th>Calories</th>
+                    </tr>
+                    <tr>
+                        <td>Small</td>
+                        <td>$@String.Format("{0:0.00}", drink.Price)</td>
+                        <td>@drink.Calories</td>
+                    </tr>
+                    <tr>
+                        <td>Medium</td>
+                        <td>$@String.Format("{0:0.00}", drink.Medium().Price)</td>
+                        <td>@drink.Medium().Calories</td>
+                    </tr>
+                    <tr>
+                        <td>Large</td>
+                        <td>$@String.Format("{0:0.00}", drink.Large().Price) </td>
+                        <td>@drink.Large().Calories</td>
+                    </tr>
+                </table>
+
+                Ingredients:
+                <ul>
+                    @for (int j = 0; j < drink.Ingredients.Count; j++)
+                    {
+                        <li>@drink.Ingredients[j]</li>
+                    }
+                </ul>
+
+            </div>
+        }
     </div>
+
+
+    @*<div id="menu">
+            <h1>Menu</h1>
+
+            @if (Model.ComboList != null && Model.ComboList.Count > 0)
+            {
+
+                <h2> Combos</h2>
+                @for (int i = 0; i < Model.ComboList.Count; i++)
+                {
+                    <div class="menu-item">
+                        @if (Model.ComboList[i] is CretaceousCombo combo)
+                        {
+                            <h3>@combo.ToString()</h3>
+                            <ul>
+                                <li>Price: $@String.Format("{0:0.00}", combo.Price)</li>
+                                <li>Calories: @combo.Calories</li>
+                                <li>@combo.Entree.ToString()</li>
+                                <li>
+                                    Ingredients:
+                                    <ul>
+                                        @for (int j = 0; j < combo.Entree.Ingredients.Count; j++)
+                                        {
+                                            <li>@combo.Entree.Ingredients[j]</li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>@combo.Side.ToString()</li>
+                                <li>
+                                    Ingredients:
+                                    <ul>
+                                        @for (int j = 0; j < combo.Side.Ingredients.Count; j++)
+                                        {
+                                            <li>@combo.Side.Ingredients[j]</li>
+                                        }
+                                    </ul>
+                                </li>
+                                <li>@combo.Drink.ToString()</li>
+                                <li>
+                                    Ingredients:
+                                    <ul>
+                                        @for (int j = 0; j < combo.Drink.Ingredients.Count; j++)
+                                        {
+                                            <li>@combo.Drink.Ingredients[j]</li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                }
+            }
+
+            @if (Model.EntreeList != null && Model.EntreeList.Count > 0)
+            {
+                <h2> Entrees </h2>
+                @for (int i = 0; i < Model.EntreeList.Count; i++)
+                {
+                    <div class="menu-item">
+                        @if (Model.EntreeList[i] is Entree entree)
+                        {
+                            <b>@entree.ToString()</b>
+                            <ul>
+                                <li> Price: $@String.Format("{0:0.00}", entree.Price)</li>
+                                <li>Calories: @entree.Calories</li>
+                                <li>
+                                    Ingredients:
+                                    <ul>
+                                        @for (int j = 0; j < entree.Ingredients.Count; j++)
+                                        {
+                                            <li>@entree.Ingredients[j]</li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                }
+            }
+
+
+            @if (Model.SideList != null && Model.SideList.Count > 0)
+            {
+                <h2> Sides </h2>
+                @for (int i = 0; i < Model.SideList.Count; i++)
+                {
+                    <div class="menu-item">
+                        @if (Model.SideList[i] is Side side)
+                        {
+                            <b>@side.ToString()</b>
+                            <ul>
+                                <li> Price: $@String.Format("{0:0.00}", side.Price)</li>
+                                <li>Calories: @side.Calories</li>
+                                <li>
+                                    Ingredients:
+                                    <ul>
+                                        @for (int j = 0; j < side.Ingredients.Count; j++)
+                                        {
+                                            <li>@side.Ingredients[j]</li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                }
+            }
+
+            @if (Model.DrinkList != null && Model.DrinkList.Count > 0)
+            {
+                <h2> Drinks </h2>
+                @for (int i = 0; i < Model.DrinkList.Count; i++)
+                {
+                    <div class="menu-item">
+                        @if (Model.DrinkList[i] is Drink drink)
+                        {
+                            <b>@drink.ToString()</b>
+                            <ul>
+                                <li> Price: $@String.Format("{0:0.00}", drink.Price)</li>
+                                <li>Calories: @drink.Calories</li>
+                                <li>
+                                    Ingredients:
+                                    <ul>
+                                        @for (int j = 0; j < drink.Ingredients.Count; j++)
+                                        {
+                                            <li>@drink.Ingredients[j]</li>
+                                        }
+                                    </ul>
+                                </li>
+                            </ul>
+                        }
+                    </div>
+                }
+            }
+
+        </div>*@
 
     <div id="filter">
         <form method="post">

@@ -45,6 +45,18 @@ namespace DinoDiner.Menu
         /// </summary>
         public abstract string[] Special { get; }
 
+        /// <summary>
+        /// returns the item after changing its size
+        /// </summary>
+        /// <returns> a drink </returns>
+        public abstract Drink Medium();
+        /// <summary>
+        /// returns the item after changing its size
+        /// </summary>
+        /// <returns> a drink </returns>
+        public abstract Drink Large();
+
+
         public event PropertyChangedEventHandler PropertyChanged;
     }
 }

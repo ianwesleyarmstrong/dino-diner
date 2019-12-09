@@ -216,6 +216,24 @@ namespace DinoDiner.Menu
             NotifyOfPropertyChange("Special");
         }
 
+        /// <summary>
+        /// Changes the drink to size medium
+        /// </summary>
+        /// <returns></returns>
+        public override Drink Medium()
+        {
+            this.Size = Size.Medium;
+            return this;
+        }
+        /// <summary>
+        /// canges the drink to size large
+        /// </summary>
+        /// <returns></returns>
+        public override Drink Large()
+        {
+            this.Size = Size.Large;
+            return this;
+        }
 
         /// <summary>
         /// override of to string method

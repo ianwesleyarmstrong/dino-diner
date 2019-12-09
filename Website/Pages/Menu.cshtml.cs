@@ -13,7 +13,7 @@ namespace Website.Pages
 
         public Menu menu;
 
-        public List<IMenuItem> MenuList;
+        public IEnumerable<IMenuItem> MenuList;
 
         /// <summary>
         /// backing variables for each type of menu item
@@ -43,7 +43,6 @@ namespace Website.Pages
             EntreeList = new List<IMenuItem>();
             SideList = new List<IMenuItem>();
             DrinkList = new List<IMenuItem>();
-            MenuList = Menu.Search(MenuList, "");
             foreach (IMenuItem item in MenuList)
             {
                 if (item is CretaceousCombo)
@@ -75,19 +74,18 @@ namespace Website.Pages
 
 
             if (search != null)
-                MenuList = Menu.Search(MenuList, search);
+                MenuList = MenuList.Where(item => item.ToString().ToLower().Contains(search.ToLower()));
 
             if (menuCategory.Count != 0)
-                MenuList = Menu.FilterByCategory(MenuList, menuCategory);
-
+                MenuList = MenuList.Where(item => (item is CretaceousCombo && menuCategory.Contains("Combo")) || (item is Entree && menuCategory.Contains("Entree")) || (item is Side && menuCategory.Contains("Side")) || (item is Drink && menuCategory.Contains("Drink")));
             if (minimumPrice != null)
-                MenuList = Menu.FilterByMinPrice(MenuList, minimumPrice.Value);
+                MenuList = MenuList.Where(item => item.Price >= minimumPrice);
 
             if (maximumPrice != null)
-                MenuList = Menu.FilterByMaxPrice(MenuList, maximumPrice.Value);
+                MenuList = MenuList.Where(item => item.Price <= minimumPrice);
 
             if (excludedIngredients.Count != 0)
-                MenuList = Menu.FilterByIngredients(MenuList, excludedIngredients);
+                MenuList = MenuList.Where(item => !item.Ingredients.Any(ingredient => excludedIngredients.Contains(ingredient)));
 
             foreach (IMenuItem item in MenuList)
             {
